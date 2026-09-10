@@ -61,26 +61,22 @@
         <button onclick="checkPass()">دخول</button>
     </div>
 
-    <!-- محتوى الموقع الأساسي (يظهر فقط عند صحة كلمة المرور) -->
+    <!-- محتوى الموقع الأساسي -->
     <div id="mainContent" style="display:none; text-align:center;">
         <h1>أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨</h1>
         <p>تم تسجيل الدخول بنجاح.</p>
-        <!-- تقدري تحطي هنا أي أكواد أو عناصر تانية تخص موقعك والأغاني -->
     </div>
 
     <script>
         function checkPass() {
-            // كلمة المرور المحددة
             var correctPass = "malak567"; 
             var userPass = document.getElementById("passInput").value;
             
             if (userPass === correctPass) {
-                // لو كلمة المرور صحيحة، اخفِ صفحة تسجيل الدخول وأظهر الموقع
                 document.getElementById("loginBox").style.display = "none";
                 document.getElementById("mainContent").style.display = "block";
             } else {
-                // لو كلمة المرور خطأ، يتم منع الدخول تماماً
-                alert("كلمة المرور غير صحيحة! عذراً، لا يمكنك دخول الموقع.");
+                alert("كلمة سر غلط يا ملوكتي حاولي مره كمان 😍😘");
                 document.getElementById("passInput").value = ""; 
             }
         }
