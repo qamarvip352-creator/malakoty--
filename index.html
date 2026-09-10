@@ -3,593 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ستار ديما & لودي نت الهند - عالم المسلسلات الكيوت 🌸✨</title>
+    <title>Malakoty | ملوكتي 😍😘</title>
+    <!-- مكتبة الألعاب النارية والاحتفالات -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         :root {
-            --bg-color: #fff0f5;
-            --card-bg: #ffffff;
             --primary: #ff6b95;
-            --primary-hover: #ff477e;
-            --accent: #ffb6c1;
-            --text-color: #5a3e47;
+            --secondary: #ffb6c1;
+            --bg: #fff0f5;
+            --text: #4a2e35;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Lock Screen */
+        .lock-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #ffe6ed, #fff0f5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
             box-sizing: border-box;
         }
 
-        /* Navbar */
-        nav {
-            background-color: #ffffff;
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px dashed var(--accent);
-            box-shadow: 0 4px 15px rgba(255, 107, 149, 0.15);
-            flex-wrap: wrap;
-            gap: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 10px;
-            margin: 0;
-            padding: 0;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 14px;
-            padding: 8px 14px;
-            border-radius: 20px;
-            background-color: #ffe6ed;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-
-        .nav-links a:hover {
-            background-color: var(--primary);
-            color: #fff;
-        }
-
-        .container {
-            padding: 25px 20px;
-            max-width: 1150px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 22px;
-            color: var(--primary);
-            margin: 35px 0 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Profile Card */
-        .profile-card {
-            background-color: #ffffff;
-            border-radius: 25px;
-            padding: 20px;
-            border: 3px dashed var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
-            flex-wrap: wrap;
-        }
-
-        .avatar-container {
-            position: relative;
-            width: 85px;
-            height: 85px;
-        }
-
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-        }
-
-        .upload-btn {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .profile-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .profile-info input, .profile-info textarea {
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 8px 12px;
-            font-family: inherit;
-            outline: none;
-            background-color: #fff9fa;
-        }
-
-        /* Live Lodynet Viewer */
-        .lodynet-box {
-            background-color: #ffffff;
-            border-radius: 25px;
-            padding: 20px;
+        .lock-card {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 107, 149, 0.3);
             border: 3px dashed var(--primary);
-            box-shadow: 0 8px 20px rgba(255, 107, 149, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .lock-card h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        input[type="password"], input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid var(--secondary);
+            border-radius: 20px;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            margin-top: 15px;
+            font-family: inherit;
+        }
+
+        .btn-main {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(255, 107, 149, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            background-color: #ff477e;
+        }
+
+        .easy-pass-btn {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 13px;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 15px;
+            display: block;
+            width: 100%;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(255, 107, 149, 0.2);
+            border: 4px dashed var(--secondary);
+            display: none; /* hidden until unlocked */
+        }
+
+        /* Music Players Card */
+        .audio-card {
+            background: #fff5f8;
+            border: 2px solid var(--secondary);
+            border-radius: 20px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .audio-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            outline: none;
+        }
+
+        /* Game Section */
+        .game-section {
+            background: #fff9fa;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px solid #ffe6ed;
             margin-top: 25px;
         }
 
-        .lodynet-iframe {
-            width: 100%;
-            height: 500px;
-            border: 2px solid var(--accent);
-            border-radius: 15px;
-            margin-top: 15px;
-        }
-
-        /* Cards & Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
-            border: 2px solid #ffe6ed;
-            transition: transform 0.3s;
-            text-align: center;
-            padding-bottom: 15px;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        .badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--primary);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
+        .result-box {
+            margin-top: 20px;
+            font-size: 19px;
             font-weight: bold;
-        }
-
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-bottom: 3px dashed var(--accent);
-        }
-
-        .card h4 {
-            margin: 12px 5px 5px 5px;
-            font-size: 15px;
             color: var(--primary);
-        }
-
-        .btn-round {
-            background-color: var(--primary);
-            color: #ffffff;
-            border: none;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            box-shadow: 0 4px 10px rgba(255, 107, 149, 0.4);
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 5px;
-        }
-
-        .btn-round:hover {
-            background-color: var(--primary-hover);
-            transform: scale(1.15) rotate(10deg);
-        }
-
-        /* Modal Player & Rating */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(90, 62, 71, 0.7);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 25px;
-            max-width: 700px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            border: 3px solid var(--primary);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            left: 18px;
-            font-size: 26px;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        video {
-            width: 100%;
+            min-height: 60px;
+            padding: 15px;
+            background: white;
             border-radius: 15px;
-            margin-top: 10px;
-        }
-
-        .rating-box {
-            background: #fff0f5;
-            padding: 10px;
-            border-radius: 15px;
-            margin-top: 15px;
-        }
-
-        .stars {
-            font-size: 22px;
-            color: #ffc107;
-            cursor: pointer;
-        }
-
-        .emojis {
-            font-size: 20px;
+            border: 2px dashed var(--secondary);
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-top: 8px;
-            cursor: pointer;
         }
 
-        .emoji-btn:hover {
-            transform: scale(1.3);
-        }
-
-        /* Comments Box */
-        .comments-section {
-            background-color: #ffffff;
-            border-radius: 25px;
-            padding: 25px;
-            margin-top: 40px;
-            border: 3px dashed var(--accent);
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
-        }
-
-        textarea {
-            width: 100%;
-            height: 80px;
-            border-radius: 15px;
-            border: 2px solid var(--accent);
-            padding: 12px;
-            font-family: inherit;
-            outline: none;
-            box-sizing: border-box;
-            background-color: #fff9fa;
-        }
-
-        .btn-pink {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
+        .gift-box {
+            margin-top: 30px;
+            background: #ffe6ed;
+            padding: 20px;
             border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn-voice {
-            background-color: #ff94b8;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .comment-item {
-            background-color: #fff0f5;
-            padding: 12px 18px;
-            border-radius: 15px;
-            border-right: 4px solid var(--primary);
-            margin-top: 10px;
-            text-align: right;
+            color: #5a3e47;
+            font-size: 16px;
+            line-height: 1.6;
         }
 
         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffffff;
-            margin-top: 50px;
+            margin-top: 30px;
             font-size: 14px;
             color: var(--primary);
-            border-top: 2px dashed var(--accent);
         }
     </style>
 </head>
 <body>
 
-    <!-- القائمة العلوية -->
-    <nav>
-        <a href="#" class="logo">🎀 ستار ديما & لودي نت 🌸</a>
-        <ul class="nav-links">
-            <li><a href="#profile">👤 البروفايل</a></li>
-            <li><a href="#lodynet">🌐 متصفح لودي نت</a></li>
-            <li><a href="#indian-series">🇮🇳 المسلسلات الهندية</a></li>
-            <li><a href="#indian-movies">🎬 الأفلام الهندية</a></li>
-            <li><a href="#comments">💬 التعليقات والصوتيات</a></li>
-        </ul>
-    </nav>
+    <!-- شاشة كلمة السر -->
+    <div class="lock-screen" id="lockScreen">
+        <div class="lock-card">
+            <h2>🔐 Malakoty | ملكوتي 😍😘</h2>
+            <p>أهلاً يا كوكي ويا ملوكتي الحلوة! ادخلي كلمة السر لرؤية المفاجأة ✨🌸</p>
+            
+            <input type="password" id="passInput" placeholder="ادخلي كلمة السر هنا...">
+            <br>
+            <button class="btn-main" onclick="checkPassword()">افتحي المفاجأة 🎁🎉</button>
+            <p id="errorMsg" style="color:red; font-size:14px; margin-top:10px; display:none;">كلمة السر غير صحيحة، حاولي مرة أخرى! ❌</p>
 
-    <div class="container">
-
-        <!-- قسم ملف المستخدم (Profile) -->
-        <h3 class="section-title" id="profile">🎀 بروفايلي الشخصي ✨</h3>
-        <div class="profile-card">
-            <div class="avatar-container">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" id="userAvatar" class="avatar-img" alt="الصورة الشخصية">
-                <label for="avatarInput" class="upload-btn">📷</label>
-                <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="loadAvatar(event)">
-            </div>
-            <div class="profile-info">
-                <input type="text" id="userName" value="عاشقة بوليوود 🌸" placeholder="الاسم الشخصي...">
-                <input type="text" id="userHandle" value="@bollywood_fan" placeholder="اسم المستخدم المعرف...">
-                <textarea id="userBio" placeholder="اكتبي نبذة عن نفسكِ وعن المسلسلات الهندية والأنمي المفضل لديكِ... 🎀">متابعة لمسلسلات لودي نت والدراما الهندية والكرتون ✨</textarea>
-            </div>
-        </div>
-
-        <!-- متصفح لودي نت المباشر داخل الموقع -->
-        <div class="lodynet-box" id="lodynet">
-            <h3 style="color: var(--primary); margin: 0 0 10px 0;">🌐 بث مباشر لموقع لودي نت الهندي 🇮🇳</h3>
-            <p style="font-size: 14px; color: #777;">يمكنكِ تصفح كافة المسلسلات والحلقات الجديدة مباشرة من هنا:</p>
-            <iframe class="lodynet-iframe" src="https://m4.llodynet.cyou/" title="Lodynet Live"></iframe>
-        </div>
-
-        <!-- قسم المسلسلات الهندية -->
-        <h3 class="section-title" id="indian-series">🇮🇳 أشهر المسلسلات الهندية HD 🌸</h3>
-        <div class="grid">
-            <div class="card">
-                <span class="badge">مترجم HD</span>
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500" alt="أقدار الزواج">
-                <h4>مسلسل أقدار الزواج 💍</h4>
-                <button class="btn-round" onclick="openPlayer('مسلسل أقدار الزواج 💍', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
-            </div>
-            <div class="card">
-                <span class="badge">مدبلج HD</span>
-                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500" alt="مكانك في القلب">
-                <h4>مكانك في القلب 💖</h4>
-                <button class="btn-round" onclick="openPlayer('مكانك في القلب 💖', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
-            </div>
-            <div class="card">
-                <span class="badge">مترجم HD</span>
-                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" alt="ومن الحب ما قتل">
-                <h4>ومن الحب ما قتل 🌺</h4>
-                <button class="btn-round" onclick="openPlayer('ومن الحب ما قتل 🌺', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
-            </div>
-            <div class="card">
-                <span class="badge">مدبلج HD</span>
-                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=500" alt="رياض الحب">
-                <h4>مسلسل رياح الحب 🍃</h4>
-                <button class="btn-round" onclick="openPlayer('مسلسل رياح الحب 🍃', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
-            </div>
-        </div>
-
-        <!-- قسم الأفلام الهندية -->
-        <h3 class="section-title" id="indian-movies">🎬 أفلام بوليوود الهندية المترجمة 🎀</h3>
-        <div class="grid">
-            <div class="card">
-                <span class="badge">مترجم HD</span>
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500" alt="فيلم هندي">
-                <h4>فيلم الرومانسية الهندي 💖</h4>
-                <button class="btn-round" onclick="openPlayer('فيلم الرومانسية الهندي 💖', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
-            </div>
-            <div class="card">
-                <span class="badge">مترجم HD</span>
-                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500" alt="فيلم أكشن هندي">
-                <h4>فيلم الأكشن والمغامرة ⚔️</h4>
-                <button class="btn-round" onclick="openPlayer('فيلم الأكشن والمغامرة ⚔️', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
-            </div>
-        </div>
-
-        <!-- قسم التعليقات والمايك -->
-        <div class="comments-section" id="comments">
-            <h3 style="color: var(--primary); margin-top:0;">💬 تعليقات المتابعين والبصمة الصوتية 🎙️</h3>
-            <textarea id="commentText" placeholder="اكتبي رأيكِ في المسلسل أو الفيلم الهندي... 🌸"></textarea>
-            <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
-                <button class="btn-pink" onclick="addComment()">إرسال التعليق 💌</button>
-                <button class="btn-voice" id="recordBtn" onclick="toggleVoice()">🎙️ تسجيل بصمة صوتية</button>
-            </div>
-
-            <div id="commentList" style="margin-top:20px;"></div>
-        </div>
-
-    </div>
-
-    <!-- مشغل الفيديو والتقييم -->
-    <div class="modal" id="videoModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closePlayer()">&times;</span>
-            <h3 id="videoTitle" style="color: var(--primary);">مشاهدة العرض</h3>
-            <video id="mainPlayer" controls>
-                <source id="videoSource" src="" type="video/mp4">
-            </video>
-
-            <!-- تقييم الحلقة بالنجوم والإيموجي -->
-            <div class="rating-box">
-                <p style="margin:0; font-weight:bold;">ما تقييمكِ وشعوركِ تجاه هذا العرض؟ ✨</p>
-                <div class="stars" onclick="rateStars(event)">
-                    ★ ★ ★ ★ ★
-                </div>
-                <div class="emojis">
-                    <span class="emoji-btn" onclick="selectEmoji('🤩')">🤩</span>
-                    <span class="emoji-btn" onclick="selectEmoji('🥰')">🥰</span>
-                    <span class="emoji-btn" onclick="selectEmoji('😂')">😂</span>
-                    <span class="emoji-btn" onclick="selectEmoji('😭')">😭</span>
-                    <span class="emoji-btn" onclick="selectEmoji('😱')">😱</span>
-                    <span class="emoji-btn" onclick="selectEmoji('😡')">😡</span>
-                </div>
-                <p id="ratingFeedback" style="font-size:13px; color:var(--primary); margin-top:5px;"></p>
-            </div>
+            <button class="easy-pass-btn" onclick="autoFillPass()">نسيتي كلمة السر؟ اضغطي هنا لتعبئتها تلقائياً 🔑</button>
         </div>
     </div>
 
-    <footer>
-        جميع الحقوق محفوظة لموقعكِ الكيوت المصمم بستايل لودي نت © 2026 🎀
-    </footer>
+    <!-- المحتوى الرئيسي للموقع -->
+    <div class="container" id="mainContent">
+        <h1>🎉 Malakoty | ملوكتي 😍😘</h1>
+        <p style="color: #888;">موقع مفاجأة خاص لكِ وحدكِ مع ألعاب وأغاني كيوت! 🌸✨</p>
+
+        <!-- مشغل أغنية نانسي عجرم (صوت فقط) -->
+        <div class="audio-card">
+            <h3>🌸 نانسي عجرم - من نظرة 🎶</h3>
+            <audio id="nancyAudio" controls loop>
+                <source src="https://ia801503.us.archive.org/15/items/nancy-ajram-men-nazra/Nancy%20Ajram%20-%20Men%20Nazra.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الصوت.
+            </audio>
+        </div>
+
+        <!-- قسم اللعبة والتحديات -->
+        <div class="game-section">
+            <h2>🎡 لعبة تحديات وأسئلة الأختين الكيوت!</h2>
+            <p>اضغطي على الزر واكتشفي التحدي أو السؤال مع صليب احتفالي! 💖</p>
+            
+            <button class="btn-main" onclick="playGame()">دورِي العجلة واكتشفي السؤال! 🎲✨</button>
+
+            <div class="result-box" id="gameResult">
+                اضغطي على الزر لبدء اللعبة... 😍😘
+            </div>
+        </div>
+
+        <!-- رسالة الحب -->
+        <div class="gift-box">
+            <h3>💌 كلمة من القلب لكِ يا ملوكتي:</h3>
+            <p>أنـتِ مش بس أختي، أنـتِ أختي وصديقتي والروح الجميلة في بيتنا! أحببت أن أعمل لكِ هذه المفاجأة البسيطة لنستمتع ونلعب معاً. أحبكِ جداً يكوكي! 😍😘💕</p>
+        </div>
+
+        <!-- ختام الموقع بأغنية تووليت (صوت فقط) -->
+        <div class="audio-card" style="margin-top: 30px;">
+            <h3>🎙️ ختام المفاجأة: TUL8TE - جريئة أوي 🎶</h3>
+            <audio id="tul8teAudio" controls>
+                <source src="https://ia801508.us.archive.org/3/items/tul8te-garee2a-awy/TUL8TE%20-%20Garee2a%20Awy.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الصوت.
+            </audio>
+        </div>
+
+        <footer>صُنِع بـ حُب لأحلى ملوكة في الدنيا (Malakoty) 😍😘 © 2026</footer>
+    </div>
+
+    <!-- صوت المؤثر الاحتفالي للعبة -->
+    <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
     <script>
-        // تغيير صورة البروفايل
-        function loadAvatar(event) {
-            let output = document.getElementById('userAvatar');
-            output.src = URL.createObjectURL(event.target.files[0]);
+        function autoFillPass() {
+            document.getElementById('passInput').value = 'malak567';
         }
 
-        // فتح مشغل الفيديو
-        function openPlayer(title, src) {
-            document.getElementById('videoTitle').innerText = title;
-            document.getElementById('videoSource').src = src;
-            document.getElementById('mainPlayer').load();
-            document.getElementById('ratingFeedback').innerText = '';
-            document.getElementById('videoModal').style.display = 'flex';
-            document.getElementById('mainPlayer').play();
-        }
+        function checkPassword() {
+            const input = document.getElementById('passInput').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
 
-        function closePlayer() {
-            document.getElementById('videoModal').style.display = 'none';
-            document.getElementById('mainPlayer').pause();
-        }
+            if (input === 'malak567') {
+                // إخفاء شاشة القفل وإظهار المحتوى
+                document.getElementById('lockScreen').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
 
-        // نظام التقييم
-        function rateStars(e) {
-            document.getElementById('ratingFeedback').innerText = 'تم تسجيل تقييمكِ بنجاح! ⭐⭐⭐⭐⭐';
-        }
+                // تشغيل الألعاب النارية والقلوب
+                confetti({
+                    particleCount: 120,
+                    spread: 80,
+                    origin: { y: 0.6 }
+                });
 
-        function selectEmoji(emoji) {
-            document.getElementById('ratingFeedback').innerText = `شعوركِ تجاه الحلقة: ${emoji}`;
-        }
+                // تشغيل أغنية نانسي عجرم فوراً وبشكل تلقائي
+                const nancy = document.getElementById('nancyAudio');
+                nancy.play().catch(e => console.log("تطلب تفاعل للتشغيل التلقائي"));
 
-        // إضافة تعليق
-        function addComment() {
-            let text = document.getElementById('commentText').value;
-            let name = document.getElementById('userName').value || 'عاشقة بوليوود';
-            let handle = document.getElementById('userHandle').value || '@guest';
-            let avatarSrc = document.getElementById('userAvatar').src;
-
-            if (!text.trim()) return;
-
-            let list = document.getElementById('commentList');
-            let item = document.createElement('div');
-            item.className = 'comment-item';
-            item.innerHTML = `
-                <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
-                    <img src="${avatarSrc}" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
-                    <div>
-                        <strong>${name}</strong> <small style="color:#888;">${handle}</small>
-                    </div>
-                </div>
-                <div>${text}</div>
-            `;
-            list.prepend(item);
-            document.getElementById('commentText').value = '';
-        }
-
-        // تسجيل صوتي
-        let mediaRecorder, audioChunks = [], isRecording = false;
-
-        async function toggleVoice() {
-            let recordBtn = document.getElementById('recordBtn');
-            if (!isRecording) {
-                try {
-                    let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                    mediaRecorder = new MediaRecorder(stream);
-                    audioChunks = [];
-                    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-                    mediaRecorder.onstop = () => {
-                        let audioBlob = new Blob(audioChunks, { type: 'audio/mp4' });
-                        let audioUrl = URL.createObjectURL(audioBlob);
-                        let name = document.getElementById('userName').value || 'عاشقة بوليوود';
-                        let avatarSrc = document.getElementById('userAvatar').src;
-
-                        let list = document.getElementById('commentList');
-                        let item = document.createElement('div');
-                        item.className = 'comment-item';
-                        item.innerHTML = `
-                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
-                                <img src="${avatarSrc}" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
-                                <strong>${name} 🎙️ (بصمة صوتية)</strong>
-                            </div>
-                            <audio controls src="${audioUrl}" style="margin-top:5px; width:100%; max-width:280px;"></audio>
-                        `;
-                        list.prepend(item);
-                    };
-                    mediaRecorder.start();
-                    isRecording = true;
-                    recordBtn.innerText = '🔴 جاري التسجيل...';
-                    recordBtn.style.backgroundColor = '#ff3366';
-                } catch (err) {
-                    alert('يرجى السماح بالوصول للمايكروفون!');
-                }
             } else {
-                mediaRecorder.stop();
-                isRecording = false;
-                recordBtn.innerText = '🎙️ تسجيل بصمة صوتية';
-                recordBtn.style.backgroundColor = '#ff94b8';
+                errorMsg.style.display = 'block';
             }
+        }
+
+        const challenges = [
+            "🌸 سؤال: ما هو أكثر موقف مضحك حدث بيننا ولن تنسيه أبداً؟ 😍",
+            "🎤 تحدي: غني مقطع من أغنية تووليت 'جريئة أوي' مع بعض! 😘",
+            "👑 سؤال: لو عندكِ أمنية واحدة أحققها لكِ اليوم، ماذا تكون؟ 💖",
+            "💃 تحدي: شغلي أغنية نانسي 'من نظرة' وارقصي عليها حركة كيوت! 😍",
+            "🍬 تحدي: اختاري قطعة شوكولاتة أو حلى وشاركيها معي الآن! 😘",
+            "💖 سؤال: ما هي أكثر صفة تحبينها فيّ كأختكِ؟ 💕",
+            "📸 تحدي: تعالي نلتقط صورة سيلفي كيوت للمناسبة هذه! 😍😘"
+        ];
+
+        function playGame() {
+            const resultDiv = document.getElementById('gameResult');
+            const winSound = document.getElementById('winSound');
+            
+            resultDiv.style.opacity = '0.5';
+            resultDiv.innerText = "جاري اختيار التحدي... 🎲✨";
+
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * challenges.length);
+                resultDiv.innerText = challenges[randomIndex];
+                resultDiv.style.opacity = '1';
+
+                // تشغيل صوت فوز خفيف وألعاب نارية صغيرة
+                winSound.play().catch(e => {});
+                confetti({
+                    particleCount: 50,
+                    spread: 60,
+                    origin: { y: 0.7 }
+                });
+            }, 600);
         }
     </script>
 </body>
