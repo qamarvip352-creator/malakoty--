@@ -11,7 +11,7 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            height: 100vh; 
+            min-height: 100vh; 
             margin: 0; 
         }
         .box { 
@@ -59,6 +59,32 @@
         h2 {
             color: #c2185b;
         }
+        .content-card {
+            background: #ffffff;
+            padding: 25px;
+            margin: 15px auto;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.1);
+            border: 1px solid #ffc1e3;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+        }
+        .song-box {
+            background: #fff8fa;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 15px;
+            border: 1px solid #ffc1e3;
+        }
+        audio {
+            width: 100%;
+            margin-top: 8px;
+        }
+        .game-btn {
+            background: linear-gradient(45deg, #ff80ab, #ff4081);
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -72,16 +98,53 @@
         <button onclick="checkPass()">افتحي المفاجأة 🎁</button>
     </div>
 
-    <!-- محتوى الموقع الأساسي (يظهر بعد كلمة السر الصحيحة) -->
-    <div id="mainContent" style="display:none; text-align:center;">
-        <h1>أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨💖</h1>
-        <p>تم تسجيل الدخول بنجاح يا أجمل ملوكة!</p>
+    <!-- محتوى الموقع الأساسي -->
+    <div id="mainContent" style="display:none; width: 100%;">
         
-        <!-- أسماء الأغاني -->
-        <div style="margin-top: 20px; font-size: 18px;">
-            <p>🎵 Nancy</p>
-            <p>🎵 tul8te.mp3</p>
+        <!-- الترحيب والاحتفال -->
+        <div class="content-card">
+            <h1>أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨💖</h1>
+            <p>🎉 تم تسجيل الدخول بنجاح يا أجمل ملوكة وعالم الكوكيز! 🎉</p>
         </div>
+
+        <!-- قسم الشعر والعبارات -->
+        <div class="content-card">
+            <h3>📜 ركن الشعر والكلمات الجميلة</h3>
+            <p style="font-style: italic; line-height: 1.8; color: #ad1457;">
+                "يا قمر منور في السحاب.. يا أجمل ضحكة وأحلى باب<br>
+                ملوكتي الحلوة يا غالية عليا.. بنحبك يا أجمل صبايا!" ✨
+            </p>
+        </div>
+
+        <!-- قسم الأغاني -->
+        <div class="content-card">
+            <h3>🎵 الأغاني والموسيقى</h3>
+            
+            <div class="song-box">
+                <p><b>Nancy</b></p>
+                <audio controls>
+                    <source src="nancy.mp3" type="audio/mp3">
+                    متصفحك لا يدعم تشغيل الصوت
+                </audio>
+            </div>
+
+            <div class="song-box">
+                <p><b>tul8te.mp3</b></p>
+                <audio controls>
+                    <source src="tul8te.mp3.mp3" type="audio/mp3">
+                    متصفحك لا يدعم تشغيل الصوت
+                </audio>
+            </div>
+        </div>
+
+        <!-- قسم الألعاب الحماسية -->
+        <div class="content-card">
+            <h3>🎮 الألعاب الحماسية</h3>
+            <p>اضغطي هنا عشان تشوفي مفاجأة اللعبة الحماسية!</p>
+            <button class="game-btn" onclick="playGame()">اضعي هنا للعب 🎲</button>
+            <p id="gameResult" style="margin-top: 10px; font-weight: bold; color: #d81b60;"></p>
+        </div>
+
     </div>
 
     <script>
@@ -96,6 +159,17 @@
                 alert("كلمة سر غلط يا ملوكتي حاولي مره كمان 😍😘");
                 document.getElementById("passInput").value = ""; 
             }
+        }
+
+        function playGame() {
+            var surprises = [
+                "🎉 مبروك يا ملوكتي، كسبتي أحضان وبوسات كتيرة! 😍😘",
+                "👑 أنتي الملكة المتجهنة اليوم وكل يوم!",
+                "✨ حظك حلو زي عيونك يا أجمل كوكيز!",
+                "💖 فزتي بقلب كل اللي بيحبوه، يا أحلى ملوكة!"
+            ];
+            var randomMsg = surprises[Math.floor(Math.random() * surprises.length)];
+            document.getElementById("gameResult").innerText = randomMsg;
         }
     </script>
 
