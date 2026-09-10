@@ -122,10 +122,22 @@
             margin-top: 0;
         }
 
-        audio {
-            width: 100%;
+        .music-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 149, 0.4);
+            transition: all 0.2s;
             margin-top: 10px;
-            outline: none;
+        }
+
+        .music-btn:active {
+            transform: scale(0.95);
         }
 
         /* Game Section */
@@ -194,10 +206,8 @@
         <!-- مشغل أغنية نانسي عجرم -->
         <div class="audio-card">
             <h3>🌸 نانسي عجرم - من نظرة 🎶</h3>
-            <audio id="nancyAudio" controls loop preload="auto">
-                <source src="nancy.mp3.mp3" type="audio/mpeg">
-                متصفحك لا يدعم تشغيل الصوت.
-            </audio>
+            <button class="music-btn" id="nancyBtn" onclick="toggleNancy()">▶ تشغيل أغنية نانسي 🎵</button>
+            <audio id="nancyAudio" src="nancy.mp3.mp3" preload="auto"></audio>
         </div>
 
         <!-- قسم اللعبة والتحديات -->
@@ -221,10 +231,8 @@
         <!-- ختام الموقع بأغنية تووليت -->
         <div class="audio-card" style="margin-top: 30px;">
             <h3>🎙️ ختام المفاجأة: TUL8TE - جريئة أوي 🎶</h3>
-            <audio id="tul8teAudio" controls preload="auto">
-                <source src="tul8te.mp3.mp3" type="audio/mpeg">
-                متصفحك لا يدعم تشغيل الصوت.
-            </audio>
+            <button class="music-btn" id="tul8teBtn" onclick="toggleTul8te()">▶ تشغيل أغنية تووليت 🎵</button>
+            <audio id="tul8teAudio" src="tul8te.mp3.mp3" preload="auto"></audio>
         </div>
 
         <footer>صُنِع بـ حُب لأحلى ملوكة في الدنيا (Malakoty) 😍😘 © 2026</footer>
@@ -234,6 +242,10 @@
     <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" preload="auto"></audio>
 
     <script>
+        const nancyAudio = document.getElementById('nancyAudio');
+        const tul8teAudio = document.getElementById('tul8teAudio');
+        const winSound = document.getElementById('winSound');
+
         function autoFillPass() {
             document.getElementById('passInput').value = 'malak567';
         }
@@ -258,6 +270,40 @@
             }
         }
 
+        function toggleNancy() {
+            const btn = document.getElementById('nancyBtn');
+            tul8teAudio.pause();
+            document.getElementById('tul8teBtn').innerText = "▶ تشغيل أغنية تووليت 🎵";
+
+            if (nancyAudio.paused) {
+                nancyAudio.play().then(() => {
+                    btn.innerText = "⏸️ إيقاف مؤقت 🌸";
+                }).catch(e => {
+                    alert("اضغطي مرة أخرى لتشغيل الأغنية ✨");
+                });
+            } else {
+                nancyAudio.pause();
+                btn.innerText = "▶ تشغيل أغنية نانسي 🎵";
+            }
+        }
+
+        function toggleTul8te() {
+            const btn = document.getElementById('tul8teBtn');
+            nancyAudio.pause();
+            document.getElementById('nancyBtn').innerText = "▶ تشغيل أغنية نانسي 🎵";
+
+            if (tul8teAudio.paused) {
+                tul8teAudio.play().then(() => {
+                    btn.innerText = "⏸️ إيقاف مؤقت 🎙️";
+                }).catch(e => {
+                    alert("اضغطي مرة أخرى لتشغيل الأغنية ✨");
+                });
+            } else {
+                tul8teAudio.pause();
+                btn.innerText = "▶ تشغيل أغنية تووليت 🎵";
+            }
+        }
+
         const challenges = [
             "🌸 سؤال: ما هو أكثر موقف مضحك حدث بيننا ولن تنسيه أبداً؟ 😍",
             "🎤 تحدي: غني مقطع من أغنية تووليت 'جريئة أوي' مع بعض! 😘",
@@ -270,7 +316,6 @@
 
         function playGame() {
             const resultDiv = document.getElementById('gameResult');
-            const winSound = document.getElementById('winSound');
             
             resultDiv.style.opacity = '0.5';
             resultDiv.innerText = "جاري اختيار التحدي... 🎲✨";
