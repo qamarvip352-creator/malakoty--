@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ستار ديما - عالم الأنمي والكرتون الكيوت 🌸✨</title>
+    <title>ستار ديما & لودي نت الهند - عالم المسلسلات الكيوت 🌸✨</title>
     <style>
         :root {
             --bg-color: #fff0f5;
@@ -34,10 +34,13 @@
             box-shadow: 0 4px 15px rgba(255, 107, 149, 0.15);
             flex-wrap: wrap;
             gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: var(--primary);
             text-decoration: none;
@@ -49,16 +52,17 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin: 0;
             padding: 0;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             color: var(--text-color);
             text-decoration: none;
-            font-size: 15px;
-            padding: 8px 16px;
+            font-size: 14px;
+            padding: 8px 14px;
             border-radius: 20px;
             background-color: #ffe6ed;
             transition: 0.3s;
@@ -85,7 +89,7 @@
             gap: 10px;
         }
 
-        /* User Profile Section */
+        /* Profile Card */
         .profile-card {
             background-color: #ffffff;
             border-radius: 25px;
@@ -100,8 +104,8 @@
 
         .avatar-container {
             position: relative;
-            width: 90px;
-            height: 90px;
+            width: 85px;
+            height: 85px;
         }
 
         .avatar-img {
@@ -144,10 +148,28 @@
             background-color: #fff9fa;
         }
 
-        /* Grid & Cards */
+        /* Live Lodynet Viewer */
+        .lodynet-box {
+            background-color: #ffffff;
+            border-radius: 25px;
+            padding: 20px;
+            border: 3px dashed var(--primary);
+            box-shadow: 0 8px 20px rgba(255, 107, 149, 0.2);
+            margin-top: 25px;
+        }
+
+        .lodynet-iframe {
+            width: 100%;
+            height: 500px;
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        /* Cards & Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
             gap: 20px;
         }
 
@@ -188,7 +210,7 @@
 
         .card h4 {
             margin: 12px 5px 5px 5px;
-            font-size: 16px;
+            font-size: 15px;
             color: var(--primary);
         }
 
@@ -196,8 +218,8 @@
             background-color: var(--primary);
             color: #ffffff;
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 18px;
@@ -214,12 +236,49 @@
             transform: scale(1.15) rotate(10deg);
         }
 
-        /* Rating & Reaction System */
+        /* Modal Player & Rating */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(90, 62, 71, 0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 25px;
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            border: 3px solid var(--primary);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 18px;
+            font-size: 26px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+
         .rating-box {
             background: #fff0f5;
             padding: 10px;
             border-radius: 15px;
-            margin: 10px 0;
+            margin-top: 15px;
         }
 
         .stars {
@@ -232,13 +291,9 @@
             font-size: 20px;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             margin-top: 8px;
             cursor: pointer;
-        }
-
-        .emoji-btn {
-            transition: transform 0.2s;
         }
 
         .emoji-btn:hover {
@@ -296,44 +351,6 @@
             text-align: right;
         }
 
-        /* Video Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(90, 62, 71, 0.7);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 25px;
-            max-width: 700px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            border: 3px solid var(--primary);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            left: 18px;
-            font-size: 26px;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        video {
-            width: 100%;
-            border-radius: 15px;
-            margin-top: 10px;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
@@ -349,12 +366,13 @@
 
     <!-- القائمة العلوية -->
     <nav>
-        <a href="#" class="logo">🎀 ستار ديما الكيوت 🌸</a>
+        <a href="#" class="logo">🎀 ستار ديما & لودي نت 🌸</a>
         <ul class="nav-links">
             <li><a href="#profile">👤 البروفايل</a></li>
-            <li><a href="#series">📺 المسلسلات</a></li>
-            <li><a href="#movies">🎬 الأفلام</a></li>
-            <li><a href="#comments">💬 التعليقات والصوت</a></li>
+            <li><a href="#lodynet">🌐 متصفح لودي نت</a></li>
+            <li><a href="#indian-series">🇮🇳 المسلسلات الهندية</a></li>
+            <li><a href="#indian-movies">🎬 الأفلام الهندية</a></li>
+            <li><a href="#comments">💬 التعليقات والصوتيات</a></li>
         </ul>
     </nav>
 
@@ -369,62 +387,69 @@
                 <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="loadAvatar(event)">
             </div>
             <div class="profile-info">
-                <input type="text" id="userName" value="أميرة الكرتون 🌸" placeholder="الاسم الشخصي...">
-                <input type="text" id="userHandle" value="@qamar_vip" placeholder="يوزر نيم المعرف...">
-                <textarea id="userBio" placeholder="اكتبي نبذة عن نفسكِ وعن الكرتون المفضل لديِك... 🎀">عاشقة للأنمي ومسلسلات زمن الطيبين ✨</textarea>
+                <input type="text" id="userName" value="عاشقة بوليوود 🌸" placeholder="الاسم الشخصي...">
+                <input type="text" id="userHandle" value="@bollywood_fan" placeholder="اسم المستخدم المعرف...">
+                <textarea id="userBio" placeholder="اكتبي نبذة عن نفسكِ وعن المسلسلات الهندية والأنمي المفضل لديكِ... 🎀">متابعة لمسلسلات لودي نت والدراما الهندية والكرتون ✨</textarea>
             </div>
         </div>
 
-        <!-- قسم مسلسلات الكرتون (مدبلجة ومترجمة) -->
-        <h3 class="section-title" id="series">✨ مسلسلات الكرتون والأنمي HD 🌸</h3>
+        <!-- متصفح لودي نت المباشر داخل الموقع -->
+        <div class="lodynet-box" id="lodynet">
+            <h3 style="color: var(--primary); margin: 0 0 10px 0;">🌐 بث مباشر لموقع لودي نت الهندي 🇮🇳</h3>
+            <p style="font-size: 14px; color: #777;">يمكنكِ تصفح كافة المسلسلات والحلقات الجديدة مباشرة من هنا:</p>
+            <iframe class="lodynet-iframe" src="https://m4.llodynet.cyou/" title="Lodynet Live"></iframe>
+        </div>
+
+        <!-- قسم المسلسلات الهندية -->
+        <h3 class="section-title" id="indian-series">🇮🇳 أشهر المسلسلات الهندية HD 🌸</h3>
         <div class="grid">
             <div class="card">
-                <span class="badge">مدبلج HD</span>
-                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500" alt="فتيات القوة Z">
-                <h4>فتيات القوة Z 💖</h4>
-                <button class="btn-round" onclick="openPlayer('فتيات القوة Z 💖', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+                <span class="badge">مترجم HD</span>
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500" alt="أقدار الزواج">
+                <h4>مسلسل أقدار الزواج 💍</h4>
+                <button class="btn-round" onclick="openPlayer('مسلسل أقدار الزواج 💍', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
             <div class="card">
                 <span class="badge">مدبلج HD</span>
-                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=500" alt="سبونج بوب">
-                <h4>سبونج بوب 🧽</h4>
-                <button class="btn-round" onclick="openPlayer('سبونج بوب 🧽', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500" alt="مكانك في القلب">
+                <h4>مكانك في القلب 💖</h4>
+                <button class="btn-round" onclick="openPlayer('مكانك في القلب 💖', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
             <div class="card">
                 <span class="badge">مترجم HD</span>
-                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" alt="المحقق كونان">
-                <h4>المحقق كونان 🔍</h4>
-                <button class="btn-round" onclick="openPlayer('المحقق كونان 🔍', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" alt="ومن الحب ما قتل">
+                <h4>ومن الحب ما قتل 🌺</h4>
+                <button class="btn-round" onclick="openPlayer('ومن الحب ما قتل 🌺', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
             <div class="card">
                 <span class="badge">مدبلج HD</span>
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500" alt="سندريلا">
-                <h4>سندريلا 👑</h4>
-                <button class="btn-round" onclick="openPlayer('سندريلا 👑', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=500" alt="رياض الحب">
+                <h4>مسلسل رياح الحب 🍃</h4>
+                <button class="btn-round" onclick="openPlayer('مسلسل رياح الحب 🍃', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
         </div>
 
-        <!-- قسم أفلام الكرتون والأنمي -->
-        <h3 class="section-title" id="movies">🎬 أفلام الكرتون والأنيميشن 🎀</h3>
+        <!-- قسم الأفلام الهندية -->
+        <h3 class="section-title" id="indian-movies">🎬 أفلام بوليوود الهندية المترجمة 🎀</h3>
         <div class="grid">
             <div class="card">
-                <span class="badge">مدبلج HD</span>
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500" alt="الأسد الملك">
-                <h4>فيلم الأسد الملك 🦁</h4>
-                <button class="btn-round" onclick="openPlayer('فيلم الأسد الملك 🦁', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+                <span class="badge">مترجم HD</span>
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500" alt="فيلم هندي">
+                <h4>فيلم الرومانسية الهندي 💖</h4>
+                <button class="btn-round" onclick="openPlayer('فيلم الرومانسية الهندي 💖', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
             <div class="card">
                 <span class="badge">مترجم HD</span>
-                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500" alt="قاتل الشياطين">
-                <h4>فيلم قاتل الشياطين ⚔️</h4>
-                <button class="btn-round" onclick="openPlayer('فيلم قاتل الشياطين ⚔️', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500" alt="فيلم أكشن هندي">
+                <h4>فيلم الأكشن والمغامرة ⚔️</h4>
+                <button class="btn-round" onclick="openPlayer('فيلم الأكشن والمغامرة ⚔️', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
         </div>
 
         <!-- قسم التعليقات والمايك -->
         <div class="comments-section" id="comments">
-            <h3 style="color: var(--primary); margin-top:0;">💬 تعليقات الزوار والبصمة الصوتية 🎙️</h3>
-            <textarea id="commentText" placeholder="اكتبي رأيكِ في الحلقة أو العرض... 🌸"></textarea>
+            <h3 style="color: var(--primary); margin-top:0;">💬 تعليقات المتابعين والبصمة الصوتية 🎙️</h3>
+            <textarea id="commentText" placeholder="اكتبي رأيكِ في المسلسل أو الفيلم الهندي... 🌸"></textarea>
             <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
                 <button class="btn-pink" onclick="addComment()">إرسال التعليق 💌</button>
                 <button class="btn-voice" id="recordBtn" onclick="toggleVoice()">🎙️ تسجيل بصمة صوتية</button>
@@ -435,7 +460,7 @@
 
     </div>
 
-    <!-- نافذة العرض والتقييم المشتركة -->
+    <!-- مشغل الفيديو والتقييم -->
     <div class="modal" id="videoModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closePlayer()">&times;</span>
@@ -446,7 +471,7 @@
 
             <!-- تقييم الحلقة بالنجوم والإيموجي -->
             <div class="rating-box">
-                <p style="margin:0; font-weight:bold;">ما رأيكِ وشعوركِ تجاه هذه الحلقة؟ ✨</p>
+                <p style="margin:0; font-weight:bold;">ما تقييمكِ وشعوركِ تجاه هذا العرض؟ ✨</p>
                 <div class="stars" onclick="rateStars(event)">
                     ★ ★ ★ ★ ★
                 </div>
@@ -464,17 +489,17 @@
     </div>
 
     <footer>
-        جميع الحقوق محفوظة لموقع ستار ديما الكيوت © 2026 🎀
+        جميع الحقوق محفوظة لموقعكِ الكيوت المصمم بستايل لودي نت © 2026 🎀
     </footer>
 
     <script>
-        // رفع وتغيير صورة البروفايل
+        // تغيير صورة البروفايل
         function loadAvatar(event) {
             let output = document.getElementById('userAvatar');
             output.src = URL.createObjectURL(event.target.files[0]);
         }
 
-        // تشغيل الفيديو وإظهار النافذة
+        // فتح مشغل الفيديو
         function openPlayer(title, src) {
             document.getElementById('videoTitle').innerText = title;
             document.getElementById('videoSource').src = src;
@@ -489,7 +514,7 @@
             document.getElementById('mainPlayer').pause();
         }
 
-        // التقييم بالنجوم والإيموجي
+        // نظام التقييم
         function rateStars(e) {
             document.getElementById('ratingFeedback').innerText = 'تم تسجيل تقييمكِ بنجاح! ⭐⭐⭐⭐⭐';
         }
@@ -498,10 +523,10 @@
             document.getElementById('ratingFeedback').innerText = `شعوركِ تجاه الحلقة: ${emoji}`;
         }
 
-        // إضافة التعليق مع معلومات البروفايل
+        // إضافة تعليق
         function addComment() {
             let text = document.getElementById('commentText').value;
-            let name = document.getElementById('userName').value || 'زائرة كيوت';
+            let name = document.getElementById('userName').value || 'عاشقة بوليوود';
             let handle = document.getElementById('userHandle').value || '@guest';
             let avatarSrc = document.getElementById('userAvatar').src;
 
@@ -523,7 +548,7 @@
             document.getElementById('commentText').value = '';
         }
 
-        // التسجيل الصوتي
+        // تسجيل صوتي
         let mediaRecorder, audioChunks = [], isRecording = false;
 
         async function toggleVoice() {
@@ -537,7 +562,7 @@
                     mediaRecorder.onstop = () => {
                         let audioBlob = new Blob(audioChunks, { type: 'audio/mp4' });
                         let audioUrl = URL.createObjectURL(audioBlob);
-                        let name = document.getElementById('userName').value || 'زائرة كيوت';
+                        let name = document.getElementById('userName').value || 'عاشقة بوليوود';
                         let avatarSrc = document.getElementById('userAvatar').src;
 
                         let list = document.getElementById('commentList');
@@ -557,7 +582,7 @@
                     recordBtn.innerText = '🔴 جاري التسجيل...';
                     recordBtn.style.backgroundColor = '#ff3366';
                 } catch (err) {
-                    alert('يرجى السماح باستخدام المايكروفون!');
+                    alert('يرجى السماح بالوصول للمايكروفون!');
                 }
             } else {
                 mediaRecorder.stop();
