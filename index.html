@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ستار ديما - عالم الكرتون والأنمي</title>
+    <title>ستار ديما - عالم الأنمي والكرتون الكيوت 🌸✨</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --primary: #38bdf8;
-            --accent: #f59e0b;
-            --text: #ffffff;
+            --bg-color: #fff0f5;
+            --card-bg: #ffffff;
+            --primary: #ff6b95;
+            --primary-hover: #ff477e;
+            --accent: #ffb6c1;
+            --text-color: #5a3e47;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -24,200 +25,547 @@
 
         /* Navbar */
         nav {
-            background-color: var(--card-bg);
-            padding: 15px 20px;
+            background-color: #ffffff;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--primary);
+            border-bottom: 4px dashed var(--accent);
+            box-shadow: 0 4px 15px rgba(255, 107, 149, 0.15);
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 15px;
-            margin: 10px 0 0 0;
+            gap: 12px;
+            margin: 0;
             padding: 0;
         }
 
         .nav-links a {
-            color: var(--text);
+            color: var(--text-color);
             text-decoration: none;
             font-size: 15px;
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: #ffe6ed;
             transition: 0.3s;
+            font-weight: bold;
         }
 
         .nav-links a:hover {
             background-color: var(--primary);
-            color: #000;
+            color: #fff;
         }
 
         .container {
-            padding: 20px;
-            max-width: 1100px;
+            padding: 25px 20px;
+            max-width: 1150px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 20px;
-            border-right: 4px solid var(--accent);
-            padding-right: 10px;
-            margin: 25px 0 15px 0;
+            font-size: 22px;
             color: var(--primary);
+            margin: 35px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Grid Layout for Cartoons & Movies */
+        /* User Profile Section */
+        .profile-card {
+            background-color: #ffffff;
+            border-radius: 25px;
+            padding: 20px;
+            border: 3px dashed var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 90px;
+            height: 90px;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .upload-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .profile-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .profile-info input, .profile-info textarea {
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 8px 12px;
+            font-family: inherit;
+            outline: none;
+            background-color: #fff9fa;
+        }
+
+        /* Grid & Cards */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
         }
 
         .card {
             background-color: var(--card-bg);
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-            transition: transform 0.2s;
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+            border: 2px solid #ffe6ed;
+            transition: transform 0.3s;
             text-align: center;
+            padding-bottom: 15px;
+            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
         }
 
         .card img {
             width: 100%;
-            height: 220px;
+            height: 250px;
             object-fit: cover;
+            border-bottom: 3px dashed var(--accent);
         }
 
         .card h4 {
-            margin: 10px 5px;
-            font-size: 15px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            margin: 12px 5px 5px 5px;
+            font-size: 16px;
+            color: var(--primary);
         }
 
-        .card button {
+        .btn-round {
             background-color: var(--primary);
-            color: #0f172a;
+            color: #ffffff;
             border: none;
-            padding: 8px 15px;
-            margin-bottom: 12px;
-            border-radius: 5px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(255, 107, 149, 0.4);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .btn-round:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        /* Rating & Reaction System */
+        .rating-box {
+            background: #fff0f5;
+            padding: 10px;
+            border-radius: 15px;
+            margin: 10px 0;
+        }
+
+        .stars {
+            font-size: 22px;
+            color: #ffc107;
+            cursor: pointer;
+        }
+
+        .emojis {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        .emoji-btn {
+            transition: transform 0.2s;
+        }
+
+        .emoji-btn:hover {
+            transform: scale(1.3);
+        }
+
+        /* Comments Box */
+        .comments-section {
+            background-color: #ffffff;
+            border-radius: 25px;
+            padding: 25px;
+            margin-top: 40px;
+            border: 3px dashed var(--accent);
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            border-radius: 15px;
+            border: 2px solid var(--accent);
+            padding: 12px;
+            font-family: inherit;
+            outline: none;
+            box-sizing: border-box;
+            background-color: #fff9fa;
+        }
+
+        .btn-pink {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
             font-weight: bold;
-            width: 90%;
+            cursor: pointer;
         }
 
-        /* Chat Section */
-        .chat-section {
-            background-color: var(--card-bg);
-            border-radius: 10px;
+        .btn-voice {
+            background-color: #ff94b8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .comment-item {
+            background-color: #fff0f5;
+            padding: 12px 18px;
+            border-radius: 15px;
+            border-right: 4px solid var(--primary);
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        /* Video Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(90, 62, 71, 0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #ffffff;
             padding: 20px;
-            margin-top: 30px;
+            border-radius: 25px;
+            max-width: 700px;
+            width: 90%;
             text-align: center;
+            position: relative;
+            border: 3px solid var(--primary);
         }
 
-        .chat-placeholder {
-            background-color: #0f172a;
-            border: 2px dashed var(--primary);
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 15px;
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 18px;
+            font-size: 26px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 10px;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background-color: var(--card-bg);
-            margin-top: 40px;
+            background-color: #ffffff;
+            margin-top: 50px;
             font-size: 14px;
-            color: #94a3b8;
+            color: var(--primary);
+            border-top: 2px dashed var(--accent);
         }
     </style>
 </head>
 <body>
 
-    <!-- القائمة العلويّة -->
+    <!-- القائمة العلوية -->
     <nav>
-        <a href="#" class="logo">✨ ستار ديما</a>
+        <a href="#" class="logo">🎀 ستار ديما الكيوت 🌸</a>
         <ul class="nav-links">
-            <li><a href="#series">مسلسلات الكرتون</a></li>
-            <li><a href="#movies">أفلام الكرتون</a></li>
-            <li><a href="#anime">الأنمي</a></li>
-            <li><a href="#chat">غرف الصوت والشات 🎙️</a></li>
+            <li><a href="#profile">👤 البروفايل</a></li>
+            <li><a href="#series">📺 المسلسلات</a></li>
+            <li><a href="#movies">🎬 الأفلام</a></li>
+            <li><a href="#comments">💬 التعليقات والصوت</a></li>
         </ul>
     </nav>
 
     <div class="container">
 
-        <!-- قسم مسلسلات الكرتون -->
-        <h3 class="section-title" id="series">📺 أحدث مسلسلات الكرتون</h3>
-        <div class="grid">
-            <div class="card">
-                <img src="https://via.placeholder.com/200x260/1e293b/38bdf8?text=Powerpuff+Girls+Z" alt="فتيات القوة Z">
-                <h4>فتيات القوة Z</h4>
-                <button>مشاهدة الحلقات</button>
+        <!-- قسم ملف المستخدم (Profile) -->
+        <h3 class="section-title" id="profile">🎀 بروفايلي الشخصي ✨</h3>
+        <div class="profile-card">
+            <div class="avatar-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" id="userAvatar" class="avatar-img" alt="الصورة الشخصية">
+                <label for="avatarInput" class="upload-btn">📷</label>
+                <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="loadAvatar(event)">
             </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/200x260/1e293b/38bdf8?text=SpongeBob" alt="سبونج بوب">
-                <h4>سبونج بوب سكوير بانتس</h4>
-                <button>مشاهدة الحلقات</button>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/200x260/1e293b/38bdf8?text=Detective+Conan" alt="المحقق كونان">
-                <h4>المحقق كونان</h4>
-                <button>مشاهدة الحلقات</button>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/200x260/1e293b/38bdf8?text=Cinderella" alt="سندريلا">
-                <h4>سندريلا</h4>
-                <button>مشاهدة الحلقات</button>
+            <div class="profile-info">
+                <input type="text" id="userName" value="أميرة الكرتون 🌸" placeholder="الاسم الشخصي...">
+                <input type="text" id="userHandle" value="@qamar_vip" placeholder="يوزر نيم المعرف...">
+                <textarea id="userBio" placeholder="اكتبي نبذة عن نفسكِ وعن الكرتون المفضل لديِك... 🎀">عاشقة للأنمي ومسلسلات زمن الطيبين ✨</textarea>
             </div>
         </div>
 
-        <!-- قسم أفلام الكرتون -->
-        <h3 class="section-title" id="movies">🎬 أفلام الكرتون والأنيميشن</h3>
+        <!-- قسم مسلسلات الكرتون (مدبلجة ومترجمة) -->
+        <h3 class="section-title" id="series">✨ مسلسلات الكرتون والأنمي HD 🌸</h3>
         <div class="grid">
             <div class="card">
-                <img src="https://via.placeholder.com/200x260/1e293b/f59e0b?text=Movie+1" alt="فيلم كرتون">
-                <h4>فيلم الأسد الملك</h4>
-                <button>مشاهدة الفيلم</button>
+                <span class="badge">مدبلج HD</span>
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500" alt="فتيات القوة Z">
+                <h4>فتيات القوة Z 💖</h4>
+                <button class="btn-round" onclick="openPlayer('فتيات القوة Z 💖', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
             <div class="card">
-                <img src="https://via.placeholder.com/200x260/1e293b/f59e0b?text=Movie+2" alt="فيلم أنمي">
-                <h4>فيلم قاتل الشياطين</h4>
-                <button>مشاهدة الفيلم</button>
+                <span class="badge">مدبلج HD</span>
+                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=500" alt="سبونج بوب">
+                <h4>سبونج بوب 🧽</h4>
+                <button class="btn-round" onclick="openPlayer('سبونج بوب 🧽', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+            </div>
+            <div class="card">
+                <span class="badge">مترجم HD</span>
+                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500" alt="المحقق كونان">
+                <h4>المحقق كونان 🔍</h4>
+                <button class="btn-round" onclick="openPlayer('المحقق كونان 🔍', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+            </div>
+            <div class="card">
+                <span class="badge">مدبلج HD</span>
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500" alt="سندريلا">
+                <h4>سندريلا 👑</h4>
+                <button class="btn-round" onclick="openPlayer('سندريلا 👑', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
         </div>
 
-        <!-- قسم غرف الصوت والشات -->
-        <div class="chat-section" id="chat">
-            <h3>🎙️ دردشة زوار ستار ديما والغرف الصوتية</h3>
-            <p>تحدثي مع أصدقائكِ واستمعي للغرف الصوتية مباشرة أثناء المشاهدة!</p>
-            <div class="chat-placeholder">
-                <p>💬 جاري إعداد وتجهيز أداة الشات الكتابي والمايك الصوتي...</p>
+        <!-- قسم أفلام الكرتون والأنمي -->
+        <h3 class="section-title" id="movies">🎬 أفلام الكرتون والأنيميشن 🎀</h3>
+        <div class="grid">
+            <div class="card">
+                <span class="badge">مدبلج HD</span>
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500" alt="الأسد الملك">
+                <h4>فيلم الأسد الملك 🦁</h4>
+                <button class="btn-round" onclick="openPlayer('فيلم الأسد الملك 🦁', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
             </div>
+            <div class="card">
+                <span class="badge">مترجم HD</span>
+                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500" alt="قاتل الشياطين">
+                <h4>فيلم قاتل الشياطين ⚔️</h4>
+                <button class="btn-round" onclick="openPlayer('فيلم قاتل الشياطين ⚔️', 'https://www.w3schools.com/html/mov_bbb.mp4')">▶</button>
+            </div>
+        </div>
+
+        <!-- قسم التعليقات والمايك -->
+        <div class="comments-section" id="comments">
+            <h3 style="color: var(--primary); margin-top:0;">💬 تعليقات الزوار والبصمة الصوتية 🎙️</h3>
+            <textarea id="commentText" placeholder="اكتبي رأيكِ في الحلقة أو العرض... 🌸"></textarea>
+            <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
+                <button class="btn-pink" onclick="addComment()">إرسال التعليق 💌</button>
+                <button class="btn-voice" id="recordBtn" onclick="toggleVoice()">🎙️ تسجيل بصمة صوتية</button>
+            </div>
+
+            <div id="commentList" style="margin-top:20px;"></div>
         </div>
 
     </div>
 
+    <!-- نافذة العرض والتقييم المشتركة -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlayer()">&times;</span>
+            <h3 id="videoTitle" style="color: var(--primary);">مشاهدة العرض</h3>
+            <video id="mainPlayer" controls>
+                <source id="videoSource" src="" type="video/mp4">
+            </video>
+
+            <!-- تقييم الحلقة بالنجوم والإيموجي -->
+            <div class="rating-box">
+                <p style="margin:0; font-weight:bold;">ما رأيكِ وشعوركِ تجاه هذه الحلقة؟ ✨</p>
+                <div class="stars" onclick="rateStars(event)">
+                    ★ ★ ★ ★ ★
+                </div>
+                <div class="emojis">
+                    <span class="emoji-btn" onclick="selectEmoji('🤩')">🤩</span>
+                    <span class="emoji-btn" onclick="selectEmoji('🥰')">🥰</span>
+                    <span class="emoji-btn" onclick="selectEmoji('😂')">😂</span>
+                    <span class="emoji-btn" onclick="selectEmoji('😭')">😭</span>
+                    <span class="emoji-btn" onclick="selectEmoji('😱')">😱</span>
+                    <span class="emoji-btn" onclick="selectEmoji('😡')">😡</span>
+                </div>
+                <p id="ratingFeedback" style="font-size:13px; color:var(--primary); margin-top:5px;"></p>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        جميع الحقوق محفوظة لموقع ستار ديما - عالم الكرتون والأنمي © 2026
+        جميع الحقوق محفوظة لموقع ستار ديما الكيوت © 2026 🎀
     </footer>
 
+    <script>
+        // رفع وتغيير صورة البروفايل
+        function loadAvatar(event) {
+            let output = document.getElementById('userAvatar');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        // تشغيل الفيديو وإظهار النافذة
+        function openPlayer(title, src) {
+            document.getElementById('videoTitle').innerText = title;
+            document.getElementById('videoSource').src = src;
+            document.getElementById('mainPlayer').load();
+            document.getElementById('ratingFeedback').innerText = '';
+            document.getElementById('videoModal').style.display = 'flex';
+            document.getElementById('mainPlayer').play();
+        }
+
+        function closePlayer() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('mainPlayer').pause();
+        }
+
+        // التقييم بالنجوم والإيموجي
+        function rateStars(e) {
+            document.getElementById('ratingFeedback').innerText = 'تم تسجيل تقييمكِ بنجاح! ⭐⭐⭐⭐⭐';
+        }
+
+        function selectEmoji(emoji) {
+            document.getElementById('ratingFeedback').innerText = `شعوركِ تجاه الحلقة: ${emoji}`;
+        }
+
+        // إضافة التعليق مع معلومات البروفايل
+        function addComment() {
+            let text = document.getElementById('commentText').value;
+            let name = document.getElementById('userName').value || 'زائرة كيوت';
+            let handle = document.getElementById('userHandle').value || '@guest';
+            let avatarSrc = document.getElementById('userAvatar').src;
+
+            if (!text.trim()) return;
+
+            let list = document.getElementById('commentList');
+            let item = document.createElement('div');
+            item.className = 'comment-item';
+            item.innerHTML = `
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
+                    <img src="${avatarSrc}" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
+                    <div>
+                        <strong>${name}</strong> <small style="color:#888;">${handle}</small>
+                    </div>
+                </div>
+                <div>${text}</div>
+            `;
+            list.prepend(item);
+            document.getElementById('commentText').value = '';
+        }
+
+        // التسجيل الصوتي
+        let mediaRecorder, audioChunks = [], isRecording = false;
+
+        async function toggleVoice() {
+            let recordBtn = document.getElementById('recordBtn');
+            if (!isRecording) {
+                try {
+                    let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mediaRecorder = new MediaRecorder(stream);
+                    audioChunks = [];
+                    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+                    mediaRecorder.onstop = () => {
+                        let audioBlob = new Blob(audioChunks, { type: 'audio/mp4' });
+                        let audioUrl = URL.createObjectURL(audioBlob);
+                        let name = document.getElementById('userName').value || 'زائرة كيوت';
+                        let avatarSrc = document.getElementById('userAvatar').src;
+
+                        let list = document.getElementById('commentList');
+                        let item = document.createElement('div');
+                        item.className = 'comment-item';
+                        item.innerHTML = `
+                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
+                                <img src="${avatarSrc}" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
+                                <strong>${name} 🎙️ (بصمة صوتية)</strong>
+                            </div>
+                            <audio controls src="${audioUrl}" style="margin-top:5px; width:100%; max-width:280px;"></audio>
+                        `;
+                        list.prepend(item);
+                    };
+                    mediaRecorder.start();
+                    isRecording = true;
+                    recordBtn.innerText = '🔴 جاري التسجيل...';
+                    recordBtn.style.backgroundColor = '#ff3366';
+                } catch (err) {
+                    alert('يرجى السماح باستخدام المايكروفون!');
+                }
+            } else {
+                mediaRecorder.stop();
+                isRecording = false;
+                recordBtn.innerText = '🎙️ تسجيل بصمة صوتية';
+                recordBtn.style.backgroundColor = '#ff94b8';
+            }
+        }
+    </script>
 </body>
 </html>
