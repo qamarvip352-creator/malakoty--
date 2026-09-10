@@ -2,26 +2,86 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Malakoty</title>
+    <title>Malakoty | ملوكتي</title>
     <style>
-        body { background: #121212; color: #fff; font-family: Tahoma, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .box { background: #1e1e1e; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        input { padding: 10px; margin: 10px 0; width: 80%; border-radius: 5px; border: 1px solid #444; background: #2c2c2c; color: #fff; text-align: center; }
-        button { padding: 10px 20px; background: #e50914; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        body { 
+            background: #fff0f5; 
+            color: #d81b60; 
+            font-family: Tahoma, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .box { 
+            background: #ffffff; 
+            padding: 40px; 
+            border-radius: 20px; 
+            text-align: center; 
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15); 
+            border: 2px dashed #ff80ab;
+            width: 350px;
+        }
+        input { 
+            padding: 12px; 
+            margin: 15px 0; 
+            width: 100%; 
+            border-radius: 25px; 
+            border: 1px solid #ff80ab; 
+            background: #fff; 
+            color: #ad1457; 
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus {
+            border-color: #e91e63;
+            box-shadow: 0 0 8px rgba(233, 30, 99, 0.3);
+        }
+        button { 
+            padding: 12px; 
+            width: 100%; 
+            background: linear-gradient(45deg, #ff4081, #f50057); 
+            color: white; 
+            border: none; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(245, 0, 87, 0.3);
+            transition: 0.3s;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        h2 {
+            color: #c2185b;
+        }
     </style>
 </head>
 <body>
 
+    <!-- صندوق تسجيل الدخول الوردي -->
     <div class="box" id="loginBox">
-        <h2>مرحباً بكِ في موقع ملوكي 👑</h2>
-        <p>الرجاء إدخال كلمة المرور للمتابعة:</p>
-        <input type="password" id="passInput" placeholder="كلمة المرور">
+        <h2>🌸 Malakoty | ملوكتي </h2>
+        <p>أهلاً يا كوكى ويا ملوكتي الحلوة! ادخلي كلمة السر لرؤية المفاجأة ✨</p>
+        <input type="password" id="passInput" placeholder="ادخلي كلمة السر هنا...">
         <br>
-        <button onclick="checkPass()">دخول</button>
+        <button onclick="checkPass()">افتحي المفاجأة 🎁</button>
     </div>
 
+    <!-- محتوى الموقع الأساسي (يظهر بعد كلمة السر الصحيحة) -->
     <div id="mainContent" style="display:none; text-align:center;">
-        <h1>أهلاً بكِ يا ملوكي، تم الدخول بنجاح!</h1>
+        <h1>أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨💖</h1>
+        <p>تم تسجيل الدخول بنجاح يا أجمل ملوكة!</p>
+        
+        <!-- أسماء الأغاني -->
+        <div style="margin-top: 20px; font-size: 18px;">
+            <p>🎵 Nancy</p>
+            <p>🎵 tul8te.mp3</p>
+        </div>
     </div>
 
     <script>
@@ -34,7 +94,7 @@
                 document.getElementById("mainContent").style.display = "block";
             } else {
                 alert("كلمة سر غلط يا ملوكتي حاولي مره كمان 😍😘");
-                document.getElementById("passInput").value = "";
+                document.getElementById("passInput").value = ""; 
             }
         }
     </script>
