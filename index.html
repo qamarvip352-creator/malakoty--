@@ -2,149 +2,228 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Malakoty | ملوكتي</title>
+    <title>Malakoty 👑 | عالم ملوكي الاحترافي</title>
     <style>
+        * { box-sizing: border-box; }
         body { 
-            background: #fff0f5; 
-            color: #d81b60; 
-            font-family: Tahoma, sans-serif; 
+            background: linear-gradient(135deg, #fff0f5, #ffccd5); 
+            color: #880e4f; 
+            font-family: 'Tahoma', sans-serif; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
             margin: 0; 
         }
-        .box { 
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
+        }
+        /* صندوق تسجيل الدخول */
+        .login-card { 
             background: #ffffff; 
-            padding: 40px; 
-            border-radius: 20px; 
-            text-align: center; 
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15); 
-            border: 2px dashed #ff80ab;
-            width: 350px;
+            padding: 40px 30px; 
+            border-radius: 30px; 
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.25); 
+            border: 3px dashed #ff80ab;
+            animation: fadeIn 0.8s ease;
+        }
+        .login-card h2 {
+            color: #d81b60;
+            margin-bottom: 15px;
+            font-size: 26px;
         }
         input { 
-            padding: 12px; 
-            margin: 15px 0; 
+            padding: 14px 20px; 
+            margin: 20px 0; 
             width: 100%; 
-            border-radius: 25px; 
-            border: 1px solid #ff80ab; 
-            background: #fff; 
+            border-radius: 30px; 
+            border: 2px solid #ff80ab; 
+            background: #fff5f8; 
             color: #ad1457; 
-            box-sizing: border-box;
             text-align: center;
-            font-size: 16px;
+            font-size: 18px;
             outline: none;
+            transition: 0.3s;
         }
         input:focus {
             border-color: #e91e63;
-            box-shadow: 0 0 8px rgba(233, 30, 99, 0.3);
+            box-shadow: 0 0 12px rgba(233, 30, 99, 0.4);
+            background: #fff;
         }
-        button { 
-            padding: 12px; 
+        .btn { 
+            padding: 14px; 
             width: 100%; 
-            background: linear-gradient(45deg, #ff4081, #f50057); 
+            background: linear-gradient(45deg, #ff4081, #e91e63); 
             color: white; 
             border: none; 
-            border-radius: 25px; 
+            border-radius: 30px; 
             cursor: pointer; 
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(245, 0, 87, 0.3);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
             transition: 0.3s;
         }
-        button:hover {
-            opacity: 0.9;
+        .btn:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
         }
-        h2 {
-            color: #c2185b;
+        /* محتوى الموقع الاحترافي */
+        .content-box {
+            display: none;
+            animation: fadeIn 0.8s ease;
         }
-        .content-card {
+        .card {
             background: #ffffff;
             padding: 25px;
-            margin: 15px auto;
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.1);
-            border: 1px solid #ffc1e3;
-            width: 90%;
-            max-width: 450px;
+            margin-bottom: 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.15);
+            border: 2px solid #ffc1e3;
             text-align: center;
         }
-        .song-box {
-            background: #fff8fa;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 15px;
-            border: 1px solid #ffc1e3;
+        .card h3 {
+            color: #c2185b;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .song-item {
+            background: #fff0f5;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 18px;
+            border: 1px solid #ffb6c1;
+        }
+        .song-item p {
+            margin: 0 0 8px 0;
+            font-weight: bold;
+            color: #ad1457;
         }
         audio {
             width: 100%;
-            margin-top: 8px;
+            border-radius: 10px;
+            outline: none;
         }
-        .game-btn {
-            background: linear-gradient(45deg, #ff80ab, #ff4081);
+        .poetry {
+            font-style: italic;
+            line-height: 2;
+            color: #880e4f;
+            font-size: 16px;
+            background: #fff5f8;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px dashed #ff80ab;
+        }
+        /* تصميم لعبة إكس أو الاحترافية */
+        .xo-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 240px;
+            margin: 15px auto;
+        }
+        .xo-cell {
+            aspect-ratio: 1;
+            background: #fff0f5;
+            border: 2px solid #ff80ab;
+            border-radius: 15px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #d81b60;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .xo-cell:hover {
+            background: #ffe0eb;
+        }
+        #xoStatus {
             margin-top: 10px;
+            font-weight: bold;
+            color: #c2185b;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- صندوق تسجيل الدخول الوردي -->
-    <div class="box" id="loginBox">
-        <h2>🌸 Malakoty | ملوكتي </h2>
-        <p>أهلاً يا كوكى ويا ملوكتي الحلوة! ادخلي كلمة السر لرؤية المفاجأة ✨</p>
-        <input type="password" id="passInput" placeholder="ادخلي كلمة السر هنا...">
-        <br>
-        <button onclick="checkPass()">افتحي المفاجأة 🎁</button>
-    </div>
-
-    <!-- محتوى الموقع الأساسي -->
-    <div id="mainContent" style="display:none; width: 100%;">
-        
-        <!-- الترحيب والاحتفال -->
-        <div class="content-card">
-            <h1>أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨💖</h1>
-            <p>🎉 تم تسجيل الدخول بنجاح يا أجمل ملوكة وعالم الكوكيز! 🎉</p>
+    <div class="container">
+        <!-- شاشة تسجيل الدخول -->
+        <div class="login-card" id="loginBox">
+            <h2>👑 Malakoty | ملوكتي </h2>
+            <p>أهلاً يا كوكى ويا ملوكتي الحلوة! ادخلي كلمة السر عشان تدخلي عالمك الفخم ✨</p>
+            <input type="password" id="passInput" placeholder="ادخلي كلمة السر هنا...">
+            <br>
+            <button class="btn" onclick="checkPass()">افتحي الموقع 💖</button>
         </div>
 
-        <!-- قسم الشعر والعبارات -->
-        <div class="content-card">
-            <h3>📜 ركن الشعر والكلمات الجميلة</h3>
-            <p style="font-style: italic; line-height: 1.8; color: #ad1457;">
-                "يا قمر منور في السحاب.. يا أجمل ضحكة وأحلى باب<br>
-                ملوكتي الحلوة يا غالية عليا.. بنحبك يا أجمل صبايا!" ✨
-            </p>
-        </div>
-
-        <!-- قسم الأغاني -->
-        <div class="content-card">
-            <h3>🎵 الأغاني والموسيقى</h3>
+        <!-- محتوى الموقع الاحترافي -->
+        <div class="content-box" id="mainContent">
             
-            <div class="song-box">
-                <p><b>Nancy</b></p>
-                <audio controls>
-                    <source src="nancy.mp3" type="audio/mp3">
-                    متصفحك لا يدعم تشغيل الصوت
-                </audio>
+            <!-- الترحيب -->
+            <div class="card">
+                <h2>✨ أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨</h2>
+                <p>موقعك الفخم والاحترافي، منورة الدنيا يا أجمل ملوكة 😍😘</p>
             </div>
 
-            <div class="song-box">
-                <p><b>tul8te.mp3</b></p>
-                <audio controls>
-                    <source src="tul8te.mp3.mp3" type="audio/mp3">
-                    متصفحك لا يدعم تشغيل الصوت
-                </audio>
+            <!-- الأغاني -->
+            <div class="card">
+                <h3>🎵 الأغاني والموسيقى المفضلة</h3>
+                
+                <div class="song-item">
+                    <p>✨ Nancy</p>
+                    <audio controls preload="auto">
+                        <source src="nancy.mp3" type="audio/mp3">
+                        متصفحك لا يدعم تشغيل الصوت
+                    </audio>
+                </div>
+
+                <div class="song-item">
+                    <p>✨ tul8te</p>
+                    <audio controls preload="auto">
+                        <source src="tul8te.mp3" type="audio/mp3">
+                        متصفحك لا يدعم تشغيل الصوت
+                    </audio>
+                </div>
             </div>
-        </div>
 
-        <!-- قسم الألعاب الحماسية -->
-        <div class="content-card">
-            <h3>🎮 الألعاب الحماسية</h3>
-            <p>اضغطي هنا عشان تشوفي مفاجأة اللعبة الحماسية!</p>
-            <button class="game-btn" onclick="playGame()">اضعي هنا للعب 🎲</button>
-            <p id="gameResult" style="margin-top: 10px; font-weight: bold; color: #d81b60;"></p>
-        </div>
+            <!-- الشعر والعبارات -->
+            <div class="card">
+                <h3>📜 ركن الشعر والكلمات</h3>
+                <div class="poetry">
+                    "يا قمر منور في السحاب.. يا أجمل ضحكة وأحلى باب<br>
+                    ملوكتي الحلوة يا غالية عليا.. بنحبك يا أجمل صبايا!" 🌸
+                </div>
+            </div>
 
+            <!-- لعبة إكس أو الاحترافية (X/O) -->
+            <div class="card">
+                <h3>🎮 لعبة إكس أو (X/O) الحماسية</h3>
+                <p>العبى وتحدي نفسكِ الآن! ❌ ⭕</p>
+                <div class="xo-board" id="xoBoard">
+                    <div class="xo-cell" onclick="makeMove(0)"></div>
+                    <div class="xo-cell" onclick="makeMove(1)"></div>
+                    <div class="xo-cell" onclick="makeMove(2)"></div>
+                    <div class="xo-cell" onclick="makeMove(3)"></div>
+                    <div class="xo-cell" onclick="makeMove(4)"></div>
+                    <div class="xo-cell" onclick="makeMove(5)"></div>
+                    <div class="xo-cell" onclick="makeMove(6)"></div>
+                    <div class="xo-cell" onclick="makeMove(7)"></div>
+                    <div class="xo-cell" onclick="makeMove(8)"></div>
+                </div>
+                <p id="xoStatus">الدور على: X</p>
+                <button class="btn" onclick="resetXO()" style="margin-top: 10px; padding: 8px; font-size: 14px;">إعادة اللعبة 🔄</button>
+            </div>
+
+        </div>
     </div>
 
     <script>
@@ -161,15 +240,62 @@
             }
         }
 
-        function playGame() {
-            var surprises = [
-                "🎉 مبروك يا ملوكتي، كسبتي أحضان وبوسات كتيرة! 😍😘",
-                "👑 أنتي الملكة المتجهنة اليوم وكل يوم!",
-                "✨ حظك حلو زي عيونك يا أجمل كوكيز!",
-                "💖 فزتي بقلب كل اللي بيحبوه، يا أحلى ملوكة!"
+        /* برمجة لعبة إكس أو الاحترافية */
+        let board = ["", "", "", "", "", "", "", "", ""];
+        let currentPlayer = "X";
+        let isGameActive = true;
+
+        function makeMove(index) {
+            if (board[index] === "" && isGameActive) {
+                board[index] = currentPlayer;
+                document.getElementsByClassName("xo-cell")[index].innerText = currentPlayer;
+                
+                checkWinner();
+                
+                if (isGameActive) {
+                    currentPlayer = currentPlayer === "X" ? "O" : "X";
+                    document.getElementById("xoStatus").innerText = "الدور على: " + currentPlayer;
+                }
+            }
+        }
+
+        function checkWinner() {
+            const winConditions = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // صفوف
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // أعمدة
+                [0, 4, 8], [2, 4, 6]  // أقطار
             ];
-            var randomMsg = surprises[Math.floor(Math.random() * surprises.length)];
-            document.getElementById("gameResult").innerText = randomMsg;
+
+            let roundWon = false;
+            for (let i = 0; i < winConditions.length; i++) {
+                let [a, b, c] = winConditions[i];
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    roundWon = true;
+                    break;
+                }
+            }
+
+            if (roundWon) {
+                document.getElementById("xoStatus").innerText = "🎉 فاز اللاعب " + currentPlayer + " يا ملوكتي! 😍😘";
+                isGameActive = false;
+                return;
+            }
+
+            if (!board.includes("")) {
+                document.getElementById("xoStatus").innerText = "🤝 تعادلنا يا أجمل ملوكة!";
+                isGameActive = false;
+            }
+        }
+
+        function resetXO() {
+            board = ["", "", "", "", "", "", "", "", ""];
+            currentPlayer = "X";
+            isGameActive = true;
+            document.getElementById("xoStatus").innerText = "الدور على: X";
+            let cells = document.getElementsByClassName("xo-cell");
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].innerText = "";
+            }
         }
     </script>
 
