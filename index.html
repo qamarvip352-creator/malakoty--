@@ -2,69 +2,26 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Malakoty 👑</title>
+    <title>Malakoty</title>
     <style>
-        body { 
-            background: #121212; 
-            color: #fff; 
-            font-family: Tahoma, sans-serif; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-        }
-        .box { 
-            background: #1e1e1e; 
-            padding: 40px; 
-            border-radius: 12px; 
-            text-align: center; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6); 
-            width: 300px;
-        }
-        input { 
-            padding: 12px; 
-            margin: 15px 0; 
-            width: 100%; 
-            border-radius: 6px; 
-            border: 1px solid #444; 
-            background: #2c2c2c; 
-            color: #fff; 
-            box-sizing: border-box;
-            text-align: center;
-            font-size: 16px;
-        }
-        button { 
-            padding: 12px; 
-            width: 100%; 
-            background: #e50914; 
-            color: white; 
-            border: none; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-size: 16px;
-            font-weight: bold;
-        }
-        button:hover {
-            background: #b20710;
-        }
+        body { background: #121212; color: #fff; font-family: Tahoma, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .box { background: #1e1e1e; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        input { padding: 10px; margin: 10px 0; width: 80%; border-radius: 5px; border: 1px solid #444; background: #2c2c2c; color: #fff; text-align: center; }
+        button { padding: 10px 20px; background: #e50914; color: white; border: none; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <!-- صندوق تسجيل الدخول -->
     <div class="box" id="loginBox">
-        <h2>موقع ملوكي 👑</h2>
+        <h2>مرحباً بكِ في موقع ملوكي 👑</h2>
         <p>الرجاء إدخال كلمة المرور للمتابعة:</p>
         <input type="password" id="passInput" placeholder="كلمة المرور">
         <br>
         <button onclick="checkPass()">دخول</button>
     </div>
 
-    <!-- محتوى الموقع الأساسي -->
     <div id="mainContent" style="display:none; text-align:center;">
-        <h1>أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨</h1>
-        <p>تم تسجيل الدخول بنجاح.</p>
+        <h1>أهلاً بكِ يا ملوكي، تم الدخول بنجاح!</h1>
     </div>
 
     <script>
@@ -77,7 +34,7 @@
                 document.getElementById("mainContent").style.display = "block";
             } else {
                 alert("كلمة سر غلط يا ملوكتي حاولي مره كمان 😍😘");
-                document.getElementById("passInput").value = ""; 
+                document.getElementById("passInput").value = "";
             }
         }
     </script>
