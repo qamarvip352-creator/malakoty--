@@ -2,511 +2,89 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malakoty | ملوكتي 😍😘</title>
-    <!-- مكتبة الألعاب النارية والاحتفالات -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <title>Malakoty 👑</title>
     <style>
-        :root {
-            --primary: #ff6b95;
-            --secondary: #ffb6c1;
-            --bg: #fff0f5;
-            --text: #4a2e35;
+        body { 
+            background: #121212; 
+            color: #fff; 
+            font-family: Tahoma, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
         }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
+        .box { 
+            background: #1e1e1e; 
+            padding: 40px; 
+            border-radius: 12px; 
+            text-align: center; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6); 
+            width: 300px;
         }
-
-        /* Lock Screen */
-        .lock-screen {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, #ffe6ed, #fff0f5);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            padding: 20px;
+        input { 
+            padding: 12px; 
+            margin: 15px 0; 
+            width: 100%; 
+            border-radius: 6px; 
+            border: 1px solid #444; 
+            background: #2c2c2c; 
+            color: #fff; 
             box-sizing: border-box;
-        }
-
-        .lock-card {
-            background: white;
-            padding: 30px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(255, 107, 149, 0.3);
-            border: 3px dashed var(--primary);
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .lock-card h2 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        input[type="password"] {
-            width: 80%;
-            padding: 12px;
-            border: 2px solid var(--secondary);
-            border-radius: 20px;
-            font-size: 16px;
             text-align: center;
-            outline: none;
-            margin-top: 15px;
-            font-family: inherit;
-        }
-
-        .btn-main {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(255, 107, 149, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .btn-main:hover {
-            transform: scale(1.05);
-            background-color: #ff477e;
-        }
-
-        .easy-pass-btn {
-            background: none;
-            border: none;
-            color: #888;
-            font-size: 13px;
-            text-decoration: underline;
-            cursor: pointer;
-            margin-top: 15px;
-            display: block;
-            width: 100%;
-        }
-
-        /* Container */
-        .container {
-            max-width: 750px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            padding: 25px;
-            box-shadow: 0 10px 25px rgba(255, 107, 149, 0.2);
-            border: 4px dashed var(--secondary);
-            display: none;
-        }
-
-        /* Audio Card */
-        .audio-card {
-            background: #fff5f8;
-            border: 2px solid var(--secondary);
-            border-radius: 20px;
-            padding: 15px;
-            margin: 15px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .music-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 107, 149, 0.4);
-            margin-top: 8px;
-        }
-
-        /* Game Sections */
-        .game-card {
-            background: #fff9fa;
-            border-radius: 25px;
-            padding: 20px;
-            border: 2px solid #ffe6ed;
-            margin-top: 20px;
-        }
-
-        .result-box {
-            margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--primary);
-            min-height: 50px;
-            padding: 12px;
-            background: white;
-            border-radius: 15px;
-            border: 2px dashed var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Tic-Tac-Toe Board */
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 80px);
-            grid-template-rows: repeat(3, 80px);
-            gap: 8px;
-            justify-content: center;
-            margin: 15px auto;
-        }
-
-        .cell {
-            background: white;
-            border: 2px solid var(--primary);
-            border-radius: 15px;
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .cell:hover {
-            background: #ffe6ed;
-        }
-
-        /* Reflex Game */
-        .reflex-box {
-            width: 150px;
-            height: 150px;
-            background: #ff6b95;
-            color: white;
-            border-radius: 50%;
-            margin: 15px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255,107,149,0.4);
-            user-select: none;
-            transition: transform 0.1s;
-        }
-        .reflex-box:active {
-            transform: scale(0.95);
-        }
-
-        .gift-box {
-            margin-top: 25px;
-            background: #ffe6ed;
-            padding: 20px;
-            border-radius: 20px;
-            color: #5a3e47;
             font-size: 16px;
-            line-height: 1.6;
         }
-
-        footer {
-            margin-top: 25px;
-            font-size: 14px;
-            color: var(--primary);
+        button { 
+            padding: 12px; 
+            width: 100%; 
+            background: #e50914; 
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #b20710;
         }
     </style>
 </head>
 <body>
 
-    <!-- شاشة كلمة السر -->
-    <div class="lock-screen" id="lockScreen">
-        <div class="lock-card">
-            <h2>🔐 Malakoty | ملكوتي 😍😘</h2>
-            <p>أهلاً يا كوكي ويا ملوكتي الحلوة! ادخلي كلمة السر لرؤية المفاجأة والألعاب الحماسية ✨🌸</p>
-            
-            <input type="password" id="passInput" placeholder="ادخلي كلمة السر هنا...">
-            <br>
-            <button class="btn-main" onclick="checkPassword()">افتحي الألعاب 🎮🎉</button>
-            <p id="errorMsg" style="color:red; font-size:14px; margin-top:10px; display:none;">كلمة السر غير صحيحة، حاولي مرة أخرى! ❌</p>
-
-            <button class="easy-pass-btn" onclick="autoFillPass()">نسيتي كلمة السر؟ اضغطي هنا لتعبئتها تلقائياً 🔑</button>
-        </div>
+    <!-- صندوق تسجيل الدخول -->
+    <div class="box" id="loginBox">
+        <h2>موقع ملوكي 👑</h2>
+        <p>الرجاء إدخال كلمة المرور للمتابعة:</p>
+        <input type="password" id="passInput" placeholder="كلمة المرور">
+        <br>
+        <button onclick="checkPass()">دخول</button>
     </div>
 
-    <!-- المحتوى الرئيسي للموقع -->
-    <div class="container" id="mainContent">
-        <h1>🎉 Malakoty | ملوكتي 😍😘</h1>
-        <p style="color: #888;">مركز الألعاب الحماسية والمفاجآت الخاصة لكِ وحدكِ! 🌸✨</p>
-
-        <!-- مشغل أغنية نانسي عجرم -->
-        <div class="audio-card">
-            <h3>🌸 نانسي عجرم - من نظرة 🎶</h3>
-            <button class="music-btn" id="nancyBtn" onclick="toggleNancy()">▶ تشغيل أغنية نانسي 🎵</button>
-            <audio id="nancyAudio" src="nancy.mp3.mp3" preload="auto"></audio>
-        </div>
-
-        <!-- اللعبة الأولى: عجلة التحديات -->
-        <div class="game-card">
-            <h2>🎡 اللعبة الأولى: عجلة التحديات والأسئلة المجنونة!</h2>
-            <p>اضغطي واكتشفي التحدي الحماسي الخاص بكِ! 💖</p>
-            <button class="btn-main" onclick="playWheel()">دوري العجلة الآن! 🎲✨</button>
-            <div class="result-box" id="wheelResult">اضغطي الزر لبدء التحدي... 😍😘</div>
-        </div>
-
-        <!-- اللعبة الثانية: إكس أو (Tic-Tac-Toe) -->
-        <div class="game-card">
-            <h2>❌⭕ اللعبة الثانية: تحدي إكس أو (Tic-Tac-Toe)</h2>
-            <p>العبِ الآن وحاولي الفوز! (أنتِ X وأنا O)</p>
-            <div class="board" id="ticBoard">
-                <div class="cell" onclick="makeMove(0)"></div>
-                <div class="cell" onclick="makeMove(1)"></div>
-                <div class="cell" onclick="makeMove(2)"></div>
-                <div class="cell" onclick="makeMove(3)"></div>
-                <div class="cell" onclick="makeMove(4)"></div>
-                <div class="cell" onclick="makeMove(5)"></div>
-                <div class="cell" onclick="makeMove(6)"></div>
-                <div class="cell" onclick="makeMove(7)"></div>
-                <div class="cell" onclick="makeMove(8)"></div>
-            </div>
-            <button class="btn-main" style="padding: 8px 20px; font-size: 15px;" onclick="resetTicTacToe()">إعادة اللعبة 🔄</button>
-            <div class="result-box" id="ticResult" style="min-height: 40px; font-size: 16px;">دوركِ يا ملوكة (اضغطي على المربعات)! ✨</div>
-        </div>
-
-        <!-- اللعبة الثالثة: اختبار سرعة رد الفعل -->
-        <div class="game-card">
-            <h2>⚡ اللعبة الثالثة: تحدي السرعة الخارقة!</h2>
-            <p>اضعلي على الدائرة بأسرع ما يمكنكِ في 5 ثوانٍ! ⏱️</p>
-            <button class="btn-main" onclick="startReflexGame()">ابدأ التحدي السريع 🚀</button>
-            <div class="reflex-box" id="reflexBtn" onclick="clickReflex()" style="display:none;">اضغطني! 💥</div>
-            <div class="result-box" id="reflexResult">النتيجة ستظهر هنا... 😎</div>
-        </div>
-
-        <!-- رسالة الحب -->
-        <div class="gift-box">
-            <h3>💌 كلمة من القلب لكِ يا ملوكتي:</h3>
-            <p>أنـتِ مش بس أختي، أنـتِ أختي وصديقتي والروح الجميلة في بيتنا! عملت لكِ هذه الألعاب لنقضي أوقات ممتعة معاً. أحبكِ جداً يكوكي! 😍😘💕</p>
-        </div>
-
-        <!-- ختام الموقع بأغنية تووليت -->
-        <div class="audio-card" style="margin-top: 20px;">
-            <h3>🎙️ ختام المفاجأة: TUL8TE - جريئة أوي 🎶</h3>
-            <button class="music-btn" id="tul8teBtn" onclick="toggleTul8te()">▶ تشغيل أغنية تووليت 🎵</button>
-            <audio id="tul8teAudio" src="tul8te.mp3.mp3" preload="auto"></audio>
-        </div>
-
-        <footer>صُنِع بـ حُب لأحلى ملوكة في الدنيا (Malakoty) 😍😘 © 2026</footer>
+    <!-- محتوى الموقع الأساسي (يظهر فقط عند صحة كلمة المرور) -->
+    <div id="mainContent" style="display:none; text-align:center;">
+        <h1>أهلاً بكِ في عالمكِ الخاص يا ملوكي ✨</h1>
+        <p>تم تسجيل الدخول بنجاح.</p>
+        <!-- تقدري تحطي هنا أي أكواد أو عناصر تانية تخص موقعك والأغاني -->
     </div>
-
-    <!-- صوت المؤثر الاحتفالي -->
-    <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" preload="auto"></audio>
 
     <script>
-        const nancyAudio = document.getElementById('nancyAudio');
-        const tul8teAudio = document.getElementById('tul8teAudio');
-        const winSound = document.getElementById('winSound');
-
-        function autoFillPass() {
-            document.getElementById('passInput').value = 'malak567';
-        }
-
-        function checkPassword() {
-            const input = document.getElementById('passInput').value.trim();
-            const errorMsg = document.getElementById('errorMsg');
-
-            if (input === 'malak567') {
-                document.getElementById('lockScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-
-                confetti({
-                    particleCount: 120,
-                    spread: 80,
-                    origin: { y: 0.6 }
-                });
-
+        function checkPass() {
+            // كلمة المرور المحددة
+            var correctPass = "malak567"; 
+            var userPass = document.getElementById("passInput").value;
+            
+            if (userPass === correctPass) {
+                // لو كلمة المرور صحيحة، اخفِ صفحة تسجيل الدخول وأظهر الموقع
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
             } else {
-                errorMsg.style.display = 'block';
+                // لو كلمة المرور خطأ، يتم منع الدخول تماماً
+                alert("كلمة المرور غير صحيحة! عذراً، لا يمكنك دخول الموقع.");
+                document.getElementById("passInput").value = ""; 
             }
-        }
-
-        function toggleNancy() {
-            const btn = document.getElementById('nancyBtn');
-            tul8teAudio.pause();
-            document.getElementById('tul8teBtn').innerText = "▶ تشغيل أغنية تووليت 🎵";
-
-            if (nancyAudio.paused) {
-                nancyAudio.play().then(() => {
-                    btn.innerText = "⏸️ إيقاف مؤقت 🌸";
-                }).catch(e => { alert("اضغطي مرة أخرى لتشغيل الأغنية ✨"); });
-            } else {
-                nancyAudio.pause();
-                btn.innerText = "▶ تشغيل أغنية نانسي 🎵";
-            }
-        }
-
-        function toggleTul8te() {
-            const btn = document.getElementById('tul8teBtn');
-            nancyAudio.pause();
-            document.getElementById('nancyBtn').innerText = "▶ تشغيل أغنية نانسي 🎵";
-
-            if (tul8teAudio.paused) {
-                tul8teAudio.play().then(() => {
-                    btn.innerText = "⏸️ إيقاف مؤقت 🎙️";
-                }).catch(e => { alert("اضغطي مرة أخرى لتشغيل الأغنية ✨"); });
-            } else {
-                tul8teAudio.pause();
-                btn.innerText = "▶ تشغيل أغنية تووليت 🎵";
-            }
-        }
-
-        // عجلة التحديات
-        const challenges = [
-            "🌸 تحدي: صرخي بأعلى صوتكِ 'أنا أحلى ملوكة في الدنيا!' 😍",
-            "🎤 تحدي: غني مقطع من أغنية تووليت 'جريئة أوي' بصوت عالي! 😘",
-            "👑 سؤال: لو ربحتِ مليون درهم/ريال الآن، أول شخص ستعطيه هدية من هو؟ 💖",
-            "💃 تحدي: قومي واعملي حركة رقصة كيوت لمدة 10 ثوانٍ! 😍",
-            "🍬 تحدي: روحي جيبي أي شيء تأكليه وتعالي كملي لعب فوراً! 😘",
-            "💖 سؤال: ما هي أكثر صفة مجنونة تحبينها في نفسكِ؟ 💕",
-            "📸 تحدي: صوري الشاشة وأنتِ فائزة باللعبة وارسلها لي! 😍😘"
-        ];
-
-        function playWheel() {
-            const resultDiv = document.getElementById('wheelResult');
-            resultDiv.style.opacity = '0.5';
-            resultDiv.innerText = "جاري تدوير العجلة الحماسية... 🎲✨";
-
-            setTimeout(() => {
-                const randomIndex = Math.floor(Math.random() * challenges.length);
-                resultDiv.innerText = challenges[randomIndex];
-                resultDiv.style.opacity = '1';
-
-                winSound.currentTime = 0;
-                winSound.play().catch(e => {});
-
-                confetti({
-                    particleCount: 60,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                });
-            }, 500);
-        }
-
-        // لعبة إكس أو
-        let board = ['', '', '', '', '', '', '', '', ''];
-        let isGameActive = true;
-        let currentPlayer = 'X'; // X هو اللاعب
-
-        function makeMove(index) {
-            if (board[index] === '' && isGameActive) {
-                board[index] = currentPlayer;
-                document.getElementsByClassName('cell')[index].innerText = currentPlayer;
-                
-                checkWinner();
-
-                if (isGameActive && currentPlayer === 'X') {
-                    currentPlayer = 'O';
-                    document.getElementById('ticResult').innerText = "دور الذكاء الاصطناعي (O)... يفكر 🤔";
-                    setTimeout(aiMove, 600);
-                }
-            }
-        }
-
-        function aiMove() {
-            if (!isGameActive) return;
-            let emptyCells = [];
-            for (let i = 0; i < board.length; i++) {
-                if (board[i] === '') emptyCells.push(i);
-            }
-            if (emptyCells.length > 0) {
-                let randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-                board[randomIndex] = 'O';
-                document.getElementsByClassName('cell')[randomIndex].innerText = 'O';
-                checkWinner();
-                if (isGameActive) {
-                    currentPlayer = 'X';
-                    document.getElementById('ticResult').innerText = "دوركِ يا ملوكة (اضغطي على المربعات)! ✨";
-                }
-            }
-        }
-
-        function checkWinner() {
-            const winConditions = [
-                [0,1,2], [3,4,5], [6,7,8],
-                [0,3,6], [1,4,7], [2,5,8],
-                [0,4,8], [2,4,6]
-            ];
-            let roundWon = false;
-            for (let condition of winConditions) {
-                let a = board[condition[0]];
-                let b = board[condition[1]];
-                let c = board[condition[2]];
-                if (a === '' || b === '' || c === '') continue;
-                if (a === b && b === c) {
-                    roundWon = true;
-                    break;
-                }
-            }
-
-            if (roundWon) {
-                let winnerName = (currentPlayer === 'X') ? "ملوكة الفائزة الرائعة! 🎉👑" : "الذكاء الاصطناعي فاز! جربي مرة أخرى 🤖";
-                document.getElementById('ticResult').innerText = winnerName;
-                isGameActive = false;
-                confetti({ particleCount: 80, spread: 90, origin: { y: 0.5 } });
-                return;
-            }
-
-            if (!board.includes('')) {
-                document.getElementById('ticResult').innerText = "تعادل! لعبة قوية جداً 🤝✨";
-                isGameActive = false;
-            }
-        }
-
-        function resetTicTacToe() {
-            board = ['', '', '', '', '', '', '', '', ''];
-            isGameActive = true;
-            currentPlayer = 'X';
-            document.getElementById('ticResult').innerText = "دوركِ يا ملوكة (اضغطي على المربعات)! ✨";
-            let cells = document.getElementsByClassName('cell');
-            for (let cell of cells) {
-                cell.innerText = '';
-            }
-        }
-
-        // لعبة سرعة رد الفعل
-        let reflexScore = 0;
-        let reflexTimer = null;
-
-        function startReflexGame() {
-            reflexScore = 0;
-            const rBtn = document.getElementById('reflexBtn');
-            const rRes = document.getElementById('reflexResult');
-            rBtn.style.display = 'flex';
-            rRes.innerText = "اضعلي بسرعة قدر الإمكان! الوقت يبدأ الآن ⏱️";
-
-            let timeLeft = 5;
-            rBtn.innerText = `اضغطني! (${timeLeft} ث)`;
-
-            let countdown = setInterval(() => {
-                timeLeft--;
-                if (timeLeft > 0) {
-                    rBtn.innerText = `اضغطني! (${timeLeft} ث)`;
-                } else {
-                    clearInterval(countdown);
-                    rBtn.style.display = 'none';
-                    rRes.innerText = `انتهى الوقت! لقد جمعتِ ${reflexScore} نقطة سريعة! 🔥👏`;
-                    confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
-                }
-            }, 1000);
-        }
-
-        function clickReflex() {
-            reflexScore++;
-            document.getElementById('reflexBtn').innerText = `+1 نقطة! (${reflexScore})`;
         }
     </script>
+
 </body>
 </html>
