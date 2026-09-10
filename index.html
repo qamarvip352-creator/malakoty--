@@ -52,7 +52,7 @@
             margin-bottom: 10px;
         }
 
-        input[type="password"], input[type="text"] {
+        input[type="password"] {
             width: 80%;
             padding: 12px;
             border: 2px solid var(--secondary);
@@ -95,7 +95,7 @@
             width: 100%;
         }
 
-        /* Main Content Container */
+        /* Container */
         .container {
             max-width: 750px;
             margin: 0 auto;
@@ -104,10 +104,10 @@
             padding: 25px;
             box-shadow: 0 10px 25px rgba(255, 107, 149, 0.2);
             border: 4px dashed var(--secondary);
-            display: none; /* hidden until unlocked */
+            display: none;
         }
 
-        /* Music Players Card */
+        /* Audio Player Card */
         .audio-card {
             background: #fff5f8;
             border: 2px solid var(--secondary);
@@ -122,10 +122,11 @@
             margin-top: 0;
         }
 
-        audio {
+        .audio-frame {
             width: 100%;
-            margin-top: 10px;
-            outline: none;
+            height: 80px;
+            border: none;
+            border-radius: 12px;
         }
 
         /* Game Section */
@@ -191,19 +192,16 @@
         <h1>🎉 Malakoty | ملوكتي 😍😘</h1>
         <p style="color: #888;">موقع مفاجأة خاص لكِ وحدكِ مع ألعاب وأغاني كيوت! 🌸✨</p>
 
-        <!-- مشغل أغنية نانسي عجرم (صوت فقط) -->
+        <!-- مشغل أغنية نانسي عجرم -->
         <div class="audio-card">
             <h3>🌸 نانسي عجرم - من نظرة 🎶</h3>
-            <audio id="nancyAudio" controls loop>
-                <source src="https://ia801503.us.archive.org/15/items/nancy-ajram-men-nazra/Nancy%20Ajram%20-%20Men%20Nazra.mp3" type="audio/mpeg">
-                متصفحك لا يدعم تشغيل الصوت.
-            </audio>
+            <iframe class="audio-frame" id="nancyFrame" src="https://www.youtube.com/embed/9G3Xg_4zJ0k?enablejsapi=1" title="Nancy Ajram - Men Nazra"></iframe>
         </div>
 
         <!-- قسم اللعبة والتحديات -->
         <div class="game-section">
             <h2>🎡 لعبة تحديات وأسئلة الأختين الكيوت!</h2>
-            <p>اضغطي على الزر واكتشفي التحدي أو السؤال مع صليب احتفالي! 💖</p>
+            <p>اضغطي على الزر واكتشفي التحدي أو السؤال مع أجواء احتفالية! 💖</p>
             
             <button class="btn-main" onclick="playGame()">دورِي العجلة واكتشفي السؤال! 🎲✨</button>
 
@@ -218,13 +216,10 @@
             <p>أنـتِ مش بس أختي، أنـتِ أختي وصديقتي والروح الجميلة في بيتنا! أحببت أن أعمل لكِ هذه المفاجأة البسيطة لنستمتع ونلعب معاً. أحبكِ جداً يكوكي! 😍😘💕</p>
         </div>
 
-        <!-- ختام الموقع بأغنية تووليت (صوت فقط) -->
+        <!-- ختام الموقع بأغنية تووليت -->
         <div class="audio-card" style="margin-top: 30px;">
             <h3>🎙️ ختام المفاجأة: TUL8TE - جريئة أوي 🎶</h3>
-            <audio id="tul8teAudio" controls>
-                <source src="https://ia801508.us.archive.org/3/items/tul8te-garee2a-awy/TUL8TE%20-%20Garee2a%20Awy.mp3" type="audio/mpeg">
-                متصفحك لا يدعم تشغيل الصوت.
-            </audio>
+            <iframe class="audio-frame" id="tul8teFrame" src="https://www.youtube.com/embed/9X5452fL2_k?enablejsapi=1" title="TUL8TE - Garee2a Awy"></iframe>
         </div>
 
         <footer>صُنِع بـ حُب لأحلى ملوكة في الدنيا (Malakoty) 😍😘 © 2026</footer>
@@ -243,20 +238,19 @@
             const errorMsg = document.getElementById('errorMsg');
 
             if (input === 'malak567') {
-                // إخفاء شاشة القفل وإظهار المحتوى
                 document.getElementById('lockScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
 
-                // تشغيل الألعاب النارية والقلوب
+                // ألعاب نارية عند الدخول
                 confetti({
                     particleCount: 120,
                     spread: 80,
                     origin: { y: 0.6 }
                 });
 
-                // تشغيل أغنية نانسي عجرم فوراً وبشكل تلقائي
-                const nancy = document.getElementById('nancyAudio');
-                nancy.play().catch(e => console.log("تطلب تفاعل للتشغيل التلقائي"));
+                // تشغيل الأغنية تلقائياً
+                const nancyFrame = document.getElementById('nancyFrame');
+                nancyFrame.src = "https://www.youtube.com/embed/9G3Xg_4zJ0k?autoplay=1";
 
             } else {
                 errorMsg.style.display = 'block';
@@ -285,7 +279,6 @@
                 resultDiv.innerText = challenges[randomIndex];
                 resultDiv.style.opacity = '1';
 
-                // تشغيل صوت فوز خفيف وألعاب نارية صغيرة
                 winSound.play().catch(e => {});
                 confetti({
                     particleCount: 50,
