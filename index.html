@@ -107,12 +107,12 @@
             display: none;
         }
 
-        /* Audio Player Card */
+        /* Audio Card */
         .audio-card {
             background: #fff5f8;
             border: 2px solid var(--secondary);
             border-radius: 20px;
-            padding: 15px;
+            padding: 20px;
             margin: 20px 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
@@ -122,11 +122,10 @@
             margin-top: 0;
         }
 
-        .audio-frame {
+        audio {
             width: 100%;
-            height: 80px;
-            border: none;
-            border-radius: 12px;
+            margin-top: 10px;
+            outline: none;
         }
 
         /* Game Section */
@@ -195,7 +194,10 @@
         <!-- مشغل أغنية نانسي عجرم -->
         <div class="audio-card">
             <h3>🌸 نانسي عجرم - من نظرة 🎶</h3>
-            <iframe class="audio-frame" id="nancyFrame" src="https://www.youtube.com/embed/9G3Xg_4zJ0k?enablejsapi=1" title="Nancy Ajram - Men Nazra"></iframe>
+            <audio id="nancyAudio" controls loop preload="auto">
+                <source src="nancy.mp3.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الصوت.
+            </audio>
         </div>
 
         <!-- قسم اللعبة والتحديات -->
@@ -219,14 +221,17 @@
         <!-- ختام الموقع بأغنية تووليت -->
         <div class="audio-card" style="margin-top: 30px;">
             <h3>🎙️ ختام المفاجأة: TUL8TE - جريئة أوي 🎶</h3>
-            <iframe class="audio-frame" id="tul8teFrame" src="https://www.youtube.com/embed/9X5452fL2_k?enablejsapi=1" title="TUL8TE - Garee2a Awy"></iframe>
+            <audio id="tul8teAudio" controls preload="auto">
+                <source src="tul8te.mp3.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الصوت.
+            </audio>
         </div>
 
         <footer>صُنِع بـ حُب لأحلى ملوكة في الدنيا (Malakoty) 😍😘 © 2026</footer>
     </div>
 
     <!-- صوت المؤثر الاحتفالي للعبة -->
-    <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
+    <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" preload="auto"></audio>
 
     <script>
         function autoFillPass() {
@@ -241,16 +246,12 @@
                 document.getElementById('lockScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
 
-                // ألعاب نارية عند الدخول
+                // ألعاب نارية احتفالية
                 confetti({
                     particleCount: 120,
                     spread: 80,
                     origin: { y: 0.6 }
                 });
-
-                // تشغيل الأغنية تلقائياً
-                const nancyFrame = document.getElementById('nancyFrame');
-                nancyFrame.src = "https://www.youtube.com/embed/9G3Xg_4zJ0k?autoplay=1";
 
             } else {
                 errorMsg.style.display = 'block';
@@ -279,7 +280,9 @@
                 resultDiv.innerText = challenges[randomIndex];
                 resultDiv.style.opacity = '1';
 
+                winSound.currentTime = 0;
                 winSound.play().catch(e => {});
+
                 confetti({
                     particleCount: 50,
                     spread: 60,
