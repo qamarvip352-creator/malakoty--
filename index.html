@@ -31,7 +31,6 @@
             text-align: center;
             position: relative;
         }
-        /* شاشة كلمة السر */
         #lock-screen {
             display: flex;
             flex-direction: column;
@@ -68,7 +67,6 @@
         button:hover {
             background-color: #a35c1d;
         }
-        /* محتوى الموقع الأساسي */
         #main-content {
             display: none;
         }
@@ -104,6 +102,7 @@
             font-size: 15px;
             line-height: 1.6;
             border-right: 4px solid #dda15e;
+            text-align: right;
         }
         .music-section {
             background: #faedcd;
@@ -117,6 +116,7 @@
             font-weight: bold;
             margin-bottom: 8px;
             color: #bc6c25;
+            text-align: center;
         }
         audio {
             width: 100%;
@@ -133,7 +133,7 @@
 <body>
 
 <div class="container">
-    <!-- شاشة إدخال كلمة السر -->
+    <!-- شاشة كلمة السر -->
     <div id="lock-screen">
         <div class="envelope-icon">💌</div>
         <h2>My Everything</h2>
@@ -151,9 +151,7 @@
         <!-- العداد -->
         <div class="counter-box">
             <p style="font-size: 14px; font-weight: 600;">كل ثانية بتعدي وأنت في قلبي</p>
-            <div class="counter-numbers" id="timer">
-                <!-- العداد التلقائي هيظهر هنا -->
-            </div>
+            <div class="counter-numbers" id="timer"></div>
         </div>
 
         <!-- رسائل رومانسية -->
@@ -165,13 +163,11 @@
             "وأن معايا بشوفك أحلى الناس، فرق الإحساس أجمل بكتير 🤍"
         </div>
 
-        <!-- قسم الأغاني (نانسي عجرم وتوليت) -->
+        <!-- قسم الأغاني -->
         <div class="music-section">
-            <div class="music-title">🎶 إهداء خاص (نانسي وتوليت)</div>
-            <p style="font-size: 13px; margin-bottom: 5px; color: #5c4033;">نانسي عجرم - حاسس بييك / توليت</p>
-            <!-- تقدري تحطي رابط أغنية حقيقي مكان الـ src أو ملف صوتي -->
-            <audio controls>
-                <source src="" type="audio/mp3">
+            <div class="music-title">🎶 Nancy - إهداء خاص</div>
+            <audio controls id="myAudio">
+                <source src="https://www.freemusicarchive.org/music/download/b282772719a9f24303b306168e64c3c3a105c312" type="audio/mp3">
                 متصفحك لا يدعم تشغيل الصوت
             </audio>
         </div>
@@ -185,12 +181,16 @@
             document.getElementById('lock-screen').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
             startCounter();
+            // تشغيل الأغنية تلقائياً عند فتح الهدية
+            const audio = document.getElementById('myAudio');
+            audio.play().catch(error => {
+                console.log("Autoplay prevented:", error);
+            });
         } else {
             document.getElementById('error').style.display = 'block';
         }
     }
 
-    // حساب العداد تلقائياً من تاريخ 3 أكتوبر 2025
     function startCounter() {
         const startDate = new Date('2025-10-03T00:00:00');
         setInterval(() => {
